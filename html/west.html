@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Western India Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(199, 200, 188, 0.933);
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px grey;
+        padding: 5px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .left h1 {
+        font-style: italic;
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        text-shadow: 2px 2px rgb(63, 53, 58);
+        margin: 0;
+      }
+
+      .left img {
+        height: 80px;
+        width: 100px;
+        border-radius: 70px;
+      }
+
+      .right {
+        margin-left: auto;
+      }
+
+      .right ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .right a {
+        color: black;
+        font-family: "Oswald";
+        text-decoration: none;
+      }
+
+      .right a:hover {
+        text-decoration: underline;
+        color: rgb(80, 7, 7);
+      }
+
+      .right a:active {
+        color: green;
+      }
+
+      hr {
+        margin: 20px 0;
+      }
+
+      h2 {
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+        margin-top: 20px;
+      }
+
+      .place-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #fefefe;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .place-container img {
+        height: 200px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .place-container p {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 5px 0;
+      }
+
+      .place-container ul {
+        margin: 5px 0 15px 20px;
+      }
+
+      .place-container ul li {
+        margin-bottom: 5px;
+      }
+
+      iframe {
+        display: block;
+        margin: 10px 0;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="left">
+          <img src="assets/logo.jpg" alt="logo of website" />
+          <h1>Wonderful Tourism</h1>
+        </div>
+
+        <div class="right">
+          <ul>
+            <li><a href="./index.html" target="_self">Home</a></li>
+            <li><a href="./aboutus.html" target="_self">About us</a></li>
+            <li><a href="./packages.html" target="_self">Package</a></li>
+            <li><a href="./services.html" target="_self">Services</a></li>
+            <li><a href="./contactus.html" target="_self">Contact us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <h2>Welcome to Western India</h2>
+
+    <div class="place-container">
+      <img src="assets/mumbai.jpg" alt="Mumbai" />
+      <p><strong>Place name:</strong> Mumbai</p>
+      <p>
+        <strong>Information:</strong> Mumbai, formerly Bombay, is the financial
+        capital of India and one of the most populous cities. It is famous for
+        Bollywood, historical landmarks, beaches, and street food.
+      </p>
+      <p><strong>Major Attractions:</strong></p>
+      <ul>
+        <li>Gateway of India – Iconic waterfront monument</li>
+        <li>Marine Drive – Queen’s Necklace sea-facing road</li>
+        <li>
+          Chhatrapati Shivaji Maharaj Terminus (CSMT) – UNESCO World Heritage
+          Site
+        </li>
+        <li>Juhu Beach – Popular beach and street food spot</li>
+      </ul>
+    </div>
+
+    <div class="place-container">
+      <img src="assets/pune.jpg" alt="Pune" />
+      <p><strong>Place name:</strong> Pune</p>
+      <p>
+        <strong>Information:</strong> Pune is known as the “Oxford of the East”
+        and was the seat of the Maratha Empire. It offers a mix of tradition,
+        modern lifestyle, and pleasant climate.
+      </p>
+      <p><strong>Major Attractions:</strong></p>
+      <ul>
+        <li>Shaniwar Wada – Historic fort palace</li>
+        <li>Aga Khan Palace – Freedom movement landmark</li>
+        <li>Sinhagad Fort – Popular trekking spot</li>
+        <li>Osho Ashram – Meditation center</li>
+      </ul>
+    </div>
+
+    <div class="place-container">
+      <img src="assets/lonawala.jpg" alt="Lonavala" />
+      <p><strong>Place name:</strong> Lonavala</p>
+      <p>
+        <strong>Information:</strong> Lonavala is a popular hill station famous
+        for lush greenery, waterfalls, and chikki. It is located between Pune
+        and Mumbai.
+      </p>
+      <p><strong>Major Attractions:</strong></p>
+      <ul>
+        <li>Lion’s Point & Tiger’s Leap – Scenic viewpoints</li>
+        <li>Bhushi Dam – Popular monsoon attraction</li>
+        <li>Rajmachi Fort – Trekking and historical site</li>
+        <li>Lonavala Lake – Peaceful nature spot</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* header styling */
+      body{
+
+        background: linear-gradient(to bottom, #ffffff 40%, #043953 40%);
+      }
+      
+      header {
+        border: 2px solid black;
+        height: 130px;
+        background-color: #0c2635;
+        position: relative;
+      }
+      h1 {
+        font-size: 70px;
+        font-family: "Momo";
+        padding-top: 10px;
+        padding-left: 150px;
+        margin: 0;
+      }
+      header #one {
+        color: #8f9ba2;
+      }
+      header #two {
+        color: #e8f1f4;
+      }
+      header nav {
+        height: 60px;
+        width: 50%;
+        border: none;
+        position: absolute;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        background-color: #dcdcdc;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+      }
+      header nav ul li {
+        color: #5a6770;
+        font-weight: 800;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        font-size: 15px;
+      }
+      header nav ul li:hover {
+        background-color: #b4c3c7;
+      }
+      header nav ul li a {
+        text-decoration: none;
+        height: 70px;
+        width: fit-content;
+        height: 100%;
+        color: #0c2635;
+      }
+      header nav ul li a:active {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      header nav ul li a:hover {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      
+      .container {
+        justify-content: start;
+        width: 80%;
+        top: 20px;
+        left: 10%;
+        border-radius: 5px;
+        position: relative;
+        align-items: start;
+        text-align: start;
+        background-color: #ffffff;
+
+        
+      }
+      .subdiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+      }
+      .subdiv .imgdiv1 {
+        height: 300px;
+        width: 400px;
+      }
+      .subdiv .imgdiv2 {
+        height: 300px;
+        width: 400px;
+      }
+      .imgdiv1 img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+      }
+      .imgdiv2 img {
+        height: 50%;
+        width: 100%;
+        object-fit: fill;
+        padding: 1px 0px 0px 1px;
+      }
+      
+      .subdiv2 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .subdiv2 .sideimg {
+        width: 120px;
+        height: 120px;
+      }
+      .subdiv2 .sideimg img {
+        width: 100%;
+        object-fit: fill;
+        height: 100%;
+        border-radius: 5px;
+      }
+      .subdiv2 .div1 {
+        width: 33.33%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        background-color: #E9F2F4;
+        padding: 10px;
+      }
+      .subdiv2 .div2 {
+        width: 33..33%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        background-color: #DCDCDC;
+         padding: 10px;
+      }
+      .subdiv2 .div3 {
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        background-color: #DCDCDC;
+         padding: 10px;
+      }
+      .text{
+        padding: 10px;
+       
+      }
+      .container2 {
+ 
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+background-color: #062B3F;
+}
+
+
+.aim {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 300px;
+  text-align: start;
+}
+.mainaim{
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2,300px);
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.div10 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.imgwrap {
+  height: 50px;
+  width: 50px;
+}
+
+.imgwrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.div11 p {
+  margin: 0;
+  color: #111010;
+  padding: 5px;
+}
+h6{
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+}
+h4{
+  color: white;
+}
+.div11 p{
+  color: #DCDCDC;
+  font-size: 12px;
+  font-weight: 100;
+}
+.foot {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #0c2635;
+      }
+      .foot last {
+        gap: 2px;
+      }
+      .foot p {
+        color: #e8f1f4;
+      }
+      .foot h4 {
+        color: #e8f1f4;
+      }
+      .foot .last span {
+        color: #e8f1f4;
+        gap: 1px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <h1><span id="one">Business</span><span id="two">Solutions</span></h1>
+        <nav>
+          <ul>
+            <li><a href="./homepage.html" target="_self">Home</a></li>
+            <li><a href="./about.html" target="_self">About us</a></li>
+            <li><a href="./services.html" target="_self">Services</a></li>
+            <li>
+              <a href="./connectwithus.html" target="_self">Connect with us</a>
+            </li>
+            <li><a href="./contactus.html" target="_self">contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="container">
+        <div class="subdiv">
+          <div class="imgdiv1">
+            <img src="assets/photo.jpg" alt="" />
+          </div>
+          <div class="imgdiv2">
+            <img src="assets/photo.jpg" alt="" />
+            <img src="assets/photo.jpg" alt="" />
+          </div>
+        </div>
+        <div class="subdiv2">
+          <divc class="div1">
+            <div class="sideimg">
+              <img src="assets/photo.jpg" alt="" />
+            </div>
+            <div class="text">
+              <h3>Game leaders in the market</h3>
+              <p>Empowering top game leaders to dominate markets</p>
+            </div>
+          </divc>
+          <!--  -->
+          <divc class="div2">
+            <div class="sideimg">
+              <img src="assets/photo.jpg" alt="" />
+            </div>
+            <div class="text">
+              <h3>Game leaders in the market</h3>
+              <p>Empowering top game leaders to dominate markets</p>
+            </div>
+          </divc>
+          <!--  -->
+          <divc class="div3">
+            <div class="sideimg">
+              <img src="assets/photo.jpg" alt="" />
+            </div>
+            <div class="text">
+              <h3>Game leaders in the market</h3>
+              <p>Empowering top game leaders to dominate markets</p>
+            </div>
+          </divc>
+          <!--  -->
+        </div>
+        </div>
+       <div class="container2">
+  <h4>OUR aim</h4>
+  <div class="mainaim">
+    <div class="aim">
+    <div class="div10">
+      <div class="imgwrap">
+        <img src="assets/earth.jpg" alt="">
+      </div>
+      <h6>Expand Global Reach</h6>
+    </div>
+
+    <div class="div11">
+      <p>
+        Connecting business worldwide with innovative IT solutions.
+      </p>
+    </div>
+    
+   
+  </div>
+  <!--  -->
+  <div class="aim">
+    <div class="div10">
+      <div class="imgwrap">
+        <img src="assets/settings.png" alt="">
+      </div>
+      <h6>embracing cutting-edge technologies</h6>
+    </div>
+
+    <div class="div11">
+      <p>
+        Empowering innovation with the most advance technologies.
+      </p>
+    </div>
+    
+   
+  </div>
+  <!--  -->
+  <div class="aim">
+    <div class="div10">
+      <div class="imgwrap">
+        <img src="assets/settings.png" alt="">
+      </div>
+      <h6>Delever precise soltion</h6>
+    </div>
+
+    <div class="div11">
+      <p>
+        solving challanges with accuracy and expertise every time.
+      </p>
+    </div>
+    
+   
+  </div>
+  <!--  -->
+  <div class="aim">
+    <div class="div10">
+      <div class="imgwrap">
+        <img src="assets/CATER - Copy.png" alt="">
+      </div>
+      <h6>cater to diverse industries</h6>
+    </div>
+
+    <div class="div11">
+      <p>
+        Missing diverse industry needs with tailored solutins.
+      </p>
+    </div>
+    
+   
+  </div>
+</div>
+
+        </div>
+  </div>
+
+  
+      </div>
+    </div>
+  </body>
+   <footer class="foot">
+    <div>
+      <h4>Contact us</h4>
+      <p>
+        <span>Email</span><span>:</span><span>pavanghadage510@gmail.com</span>
+      </p>
+      <p>
+        <span>address</span><span>:</span
+        ><span>zeal chowk narhe,pune411041</span>
+      </p>
+      <p><span>contact</span><span>:</span><span></span>7773934201</p>
+    </div>
+    <div>
+      <h4>GET UPDATED</h4>
+      <p>Blog</p>
+      <p>Facebook</p>
+      <p>twitter</p>
+    </div>
+    <div class="last">
+      <span>@</span><span>copyright</span><span>@</span><span>2025</span
+      ><span>allrights reserved.</span>
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #607179;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #2c3e50;
+      }
+
+      .navbar {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(199, 200, 188, 0.933);
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px grey;
+        padding: 5px 20px;
+        position: sticky;
+        top: 0;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        width: 25%;
+      }
+
+      .left img {
+        height: 80px;
+        width: 100px;
+        border-radius: 70px;
+      }
+
+      .left h1 {
+        margin-left: 10px;
+        font-style: italic;
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        text-shadow: 2px 2px rgb(63, 53, 58);
+      }
+
+      .right {
+        margin-left: auto;
+      }
+
+      .right ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .right a {
+        text-decoration: none;
+        color: black;
+        font-family: "Oswald";
+      }
+
+      .right a:hover {
+        text-decoration: underline;
+        color: rgb(80, 7, 7);
+      }
+
+      ol {
+        counter-reset: service;
+        list-style: none;
+        padding: 0;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      ol > li {
+        counter-increment: service;
+        background-color: #fff;
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      ol > li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      ol > li h3::before {
+        content: counter(service) ". ";
+        font-weight: bold;
+        color: #16a085;
+      }
+
+      ol li h3 {
+        margin: 0 0 10px;
+        font-size: 1.4rem;
+        color: #2c3e50;
+      }
+
+      ol li ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      ol li ul li {
+        list-style: disc;
+        color: #555;
+        margin-bottom: 5px;
+      }
+
+      footer {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        padding: 15px 10px;
+        font-family: "Oswald", sans-serif;
+        margin-top: 40px;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+      h2 {
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="left">
+          <img src="assets/logo.jpg" alt="logo of website" />
+          <h1>Wonderful Tourism</h1>
+        </div>
+
+        <div class="right">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./aboutus.html">About us</a></li>
+            <li><a href="./packages.html">Package</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./contactus.html">Contact us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <hr />
+
+    <h2>Our Services</h2>
+
+    <ol>
+      <li>
+        <h3>Hotel Booking Assistance</h3>
+        <ul>
+          <li>Comfortable and verified hotels</li>
+          <li>Budget, deluxe and luxury stays</li>
+          <li>Best price guarantee</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Transportation Services</h3>
+        <ul>
+          <li>Cab, bus and local transport</li>
+          <li>Airport & railway pickup and drop</li>
+          <li>Safe and reliable travel</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Customized Trip Planning</h3>
+        <ul>
+          <li>Personalized travel itinerary</li>
+          <li>Based on budget and time</li>
+          <li>Stress-free travel experience</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Pilgrimage & Spiritual Tours</h3>
+        <ul>
+          <li>Temple and Jyotirlinga tours</li>
+          <li>Char Dham packages</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Honeymoon Packages</h3>
+        <ul>
+          <li>Romantic destinations</li>
+          <li>Special couple arrangements</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Adventure & Activity Tours</h3>
+        <ul>
+          <li>Trekking & safari</li>
+          <li>Water sports & adventure activities</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>Group & Corporate Tours</h3>
+        <ul>
+          <li>School & college trips</li>
+          <li>Corporate group tours</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>24/7 Travel Support</h3>
+        <ul>
+          <li>Customer support anytime</li>
+          <li>Assistance before, during and after travel</li>
+        </ul>
+      </li>
+    </ol>
+
+    <footer>
+      <p>© 2026 Wonderful Tourism | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

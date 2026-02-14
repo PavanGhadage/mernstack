@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <style>
+      .card-img-top {
+        height: 250px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="bg-dark text-warning p-3 text-center">
+      Simple E-commerce website
+    </h2>
+    <div class="d-flex justify-content-around">
+      <!-- 1 -->
+      <div style="width: 300px">
+        <div class="card h-100">
+          <img
+            src="https://www.designinfo.in/wp-content/uploads/2024/01/Samsung-Galaxy-S24-Ultra-256GB-Titanium-Violet-3-485x485.webp"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body text-center">
+            <h2 class="card_title">Samsung s-24</h2>
+            <button
+              class="btn btn-success text-white rounded-0"
+              data-toggle="modal"
+              data-target="#datatarget1"
+            >
+              know more
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--2  -->
+      <div style="width: 300px">
+        <div class="card h-100">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQywmTKTf0uKSuSxF0o3B4sZE1_P9sd1HQEqw&s"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body text-center">
+            <h2 class="card_title">Tissot T-Touch Watch</h2>
+            <button
+              class="btn btn-success text-white rounded-0"
+              data-toggle="modal"
+              data-target="#datatarget2"
+            >
+              know more
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--  3-->
+      <div style="width: 300px">
+        <div class="card h-100">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU8mJ0C3Nvfwr4dRKx9-hh01YE8duDElIDQA&s"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body text-center">
+            <h2 class="card_title">JBL headphones</h2>
+            <button
+              class="btn btn-success text-white rounded-0"
+              data-toggle="modal"
+              data-target="#datatarget3"
+            >
+              know more
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--4  -->
+      <div style="width: 300px">
+        <div class="card h-100">
+          <img
+            src="https://m.media-amazon.com/images/I/61dUvabnSmL._AC_UF1000,1000_QL80_.jpg"
+            class="card-img-top"
+            alt=""
+          />
+          <div class="card-body text-center">
+            <h2 class="card_title">go-pro hero 12</h2>
+            <button
+              class="btn btn-success text-white rounded-0"
+              data-toggle="modal"
+              data-target="#datatarget4"
+            >
+              know more
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- model code 1-->
+
+    <div
+      class="modal fade"
+      id="datatarget1"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Samsung S-24 Ultra</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner" style="height: 400px">
+                <div class="carousel-item active h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQoUXwurcGdYsjmRnVKjI0oZgKMQEx8kHtsnhIfSLPm5KyONx8jZVOChlzYCET1yK7y8E_4Mn8YBU7Ro0jOy82WYidmrilJwOOymGl2LEi-ZMGRR0yN33UZotk"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSN2hpD_iYwRRHFkI-Y_y-PVGy2rARdYe_ZV1BqARk1BvPYqvIpmGG5Av8Vm6GnobIJV3FvVIs9VH6NmJuT6OpAZiVYfUIxnA"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR1xGxjiDb5Z8KlIrVnyNPC1hpAj4Yt6UXeYcOG6ZM_OG-rPedJdcjbvgTBz-v4MFI6HTz4uX2CI2Ou4nv8qjvU0BC-1s_xVjdu1-7q8DSq2N_FyAklPUVF"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </button>
+            </div>
+
+            <ul>
+              <li>
+                <strong>Display:</strong> 6.2-inch Dynamic AMOLED 2X, 120Hz
+                refresh rate
+              </li>
+
+              <li>
+                <strong>Design:</strong> Compact, premium build with Armor
+                Aluminum frame
+              </li>
+
+              <li>
+                <strong>Performance:</strong> Powered by Exynos 2400 (some
+                regions Snapdragon)
+              </li>
+
+              <li>
+                <strong>AI Features (Galaxy AI):</strong>
+                <ul>
+                  <li>Live Call Translation</li>
+                  <li>Circle to Search</li>
+                  <li>AI photo editing & generative fill</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Camera:</strong>
+                <ul>
+                  <li>50 MP main camera</li>
+                  <li>10 MP telephoto with 3× optical zoom</li>
+                  <li>12 MP ultra-wide</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Add to cart</button>
+            <button type="button" class="btn btn-success">buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- model code 2 -->
+    <div
+      class="modal fade"
+      id="datatarget2"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Samsung S-24 Ultra</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner" style="height: 400px">
+                <div class="carousel-item active h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQoUXwurcGdYsjmRnVKjI0oZgKMQEx8kHtsnhIfSLPm5KyONx8jZVOChlzYCET1yK7y8E_4Mn8YBU7Ro0jOy82WYidmrilJwOOymGl2LEi-ZMGRR0yN33UZotk"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSN2hpD_iYwRRHFkI-Y_y-PVGy2rARdYe_ZV1BqARk1BvPYqvIpmGG5Av8Vm6GnobIJV3FvVIs9VH6NmJuT6OpAZiVYfUIxnA"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR1xGxjiDb5Z8KlIrVnyNPC1hpAj4Yt6UXeYcOG6ZM_OG-rPedJdcjbvgTBz-v4MFI6HTz4uX2CI2Ou4nv8qjvU0BC-1s_xVjdu1-7q8DSq2N_FyAklPUVF"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </button>
+            </div>
+
+            <ul>
+              <li>
+                <strong>Display:</strong> 6.2-inch Dynamic AMOLED 2X, 120Hz
+                refresh rate
+              </li>
+
+              <li>
+                <strong>Design:</strong> Compact, premium build with Armor
+                Aluminum frame
+              </li>
+
+              <li>
+                <strong>Performance:</strong> Powered by Exynos 2400 (some
+                regions Snapdragon)
+              </li>
+
+              <li>
+                <strong>AI Features (Galaxy AI):</strong>
+                <ul>
+                  <li>Live Call Translation</li>
+                  <li>Circle to Search</li>
+                  <li>AI photo editing & generative fill</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Camera:</strong>
+                <ul>
+                  <li>50 MP main camera</li>
+                  <li>10 MP telephoto with 3× optical zoom</li>
+                  <li>12 MP ultra-wide</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Add to cart</button>
+            <button type="button" class="btn btn-success">buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- model code3 -->
+    <div
+      class="modal fade"
+      id="datatarget3"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Samsung S-24 Ultra</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner" style="height: 400px">
+                <div class="carousel-item active h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQoUXwurcGdYsjmRnVKjI0oZgKMQEx8kHtsnhIfSLPm5KyONx8jZVOChlzYCET1yK7y8E_4Mn8YBU7Ro0jOy82WYidmrilJwOOymGl2LEi-ZMGRR0yN33UZotk"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSN2hpD_iYwRRHFkI-Y_y-PVGy2rARdYe_ZV1BqARk1BvPYqvIpmGG5Av8Vm6GnobIJV3FvVIs9VH6NmJuT6OpAZiVYfUIxnA"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR1xGxjiDb5Z8KlIrVnyNPC1hpAj4Yt6UXeYcOG6ZM_OG-rPedJdcjbvgTBz-v4MFI6HTz4uX2CI2Ou4nv8qjvU0BC-1s_xVjdu1-7q8DSq2N_FyAklPUVF"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </button>
+            </div>
+
+            <ul>
+              <li>
+                <strong>Display:</strong> 6.2-inch Dynamic AMOLED 2X, 120Hz
+                refresh rate
+              </li>
+
+              <li>
+                <strong>Design:</strong> Compact, premium build with Armor
+                Aluminum frame
+              </li>
+
+              <li>
+                <strong>Performance:</strong> Powered by Exynos 2400 (some
+                regions Snapdragon)
+              </li>
+
+              <li>
+                <strong>AI Features (Galaxy AI):</strong>
+                <ul>
+                  <li>Live Call Translation</li>
+                  <li>Circle to Search</li>
+                  <li>AI photo editing & generative fill</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Camera:</strong>
+                <ul>
+                  <li>50 MP main camera</li>
+                  <li>10 MP telephoto with 3× optical zoom</li>
+                  <li>12 MP ultra-wide</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Add to cart</button>
+            <button type="button" class="btn btn-success">buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- model code4 -->
+    <div
+      class="modal fade"
+      id="datatarget4"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Samsung S-24 Ultra</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner" style="height: 400px">
+                <div class="carousel-item active h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQoUXwurcGdYsjmRnVKjI0oZgKMQEx8kHtsnhIfSLPm5KyONx8jZVOChlzYCET1yK7y8E_4Mn8YBU7Ro0jOy82WYidmrilJwOOymGl2LEi-ZMGRR0yN33UZotk"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSN2hpD_iYwRRHFkI-Y_y-PVGy2rARdYe_ZV1BqARk1BvPYqvIpmGG5Av8Vm6GnobIJV3FvVIs9VH6NmJuT6OpAZiVYfUIxnA"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100">
+                  <img
+                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR1xGxjiDb5Z8KlIrVnyNPC1hpAj4Yt6UXeYcOG6ZM_OG-rPedJdcjbvgTBz-v4MFI6HTz4uX2CI2Ou4nv8qjvU0BC-1s_xVjdu1-7q8DSq2N_FyAklPUVF"
+                    class="d-block w-100 h-100"
+                    style="object-fit: contain"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-target="#carouselExampleIndicators"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </button>
+            </div>
+
+            <ul>
+              <li>
+                <strong>Display:</strong> 6.2-inch Dynamic AMOLED 2X, 120Hz
+                refresh rate
+              </li>
+
+              <li>
+                <strong>Design:</strong> Compact, premium build with Armor
+                Aluminum frame
+              </li>
+
+              <li>
+                <strong>Performance:</strong> Powered by Exynos 2400 (some
+                regions Snapdragon)
+              </li>
+
+              <li>
+                <strong>AI Features (Galaxy AI):</strong>
+                <ul>
+                  <li>Live Call Translation</li>
+                  <li>Circle to Search</li>
+                  <li>AI photo editing & generative fill</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Camera:</strong>
+                <ul>
+                  <li>50 MP main camera</li>
+                  <li>10 MP telephoto with 3× optical zoom</li>
+                  <li>12 MP ultra-wide</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning">Add to cart</button>
+            <button type="button" class="btn btn-success">buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 4 JS & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

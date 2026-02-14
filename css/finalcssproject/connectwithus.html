@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      header {
+        border: 2px solid black;
+        height: 130px;
+        background-color: #0c2635;
+        position: relative;
+        width: 100%;
+      }
+
+      .container ul {
+      }
+      h1 {
+        font-size: 70px;
+        font-family: "Momo";
+        padding-top: 10px;
+        padding-left: 150px;
+        margin: 0;
+      }
+      header #one {
+        color: #8f9ba2;
+      }
+      header #two {
+        color: #e8f1f4;
+      }
+      header nav {
+        height: 60px;
+        border: none;
+        position: absolute;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        background-color: #dcdcdc;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+      }
+      header nav ul li {
+        color: #5a6770;
+        font-weight: 800;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        font-size: 15px;
+      }
+      header nav ul li a {
+        text-decoration: none;
+        height: 70px;
+        width: fit-content;
+        height: 100%;
+        color: #0c2635;
+      }
+      header nav ul li a:active {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      header nav ul li a:hover {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      .container {
+        justify-content: start;
+        width: 79%;
+        top: 70px;
+        left: 10%;
+        border-radius: 5px;
+        position: relative;
+        /* align-items: start;
+        text-align: start; */
+        background-color: #ffffff;
+        border: none;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .container form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 30%;
+      }
+      .container form input {
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+      .container form input[type="file"] {
+        border: none;
+      }
+      .container form select {
+        height: 30px;
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+      .drop {
+        border: 1px solid black;
+        height: 100%;
+        width: 100%;
+        top: 10px;
+      }
+      .container form input[type="submit"] {
+        background-color: #47a808;
+        color: white;
+        border: none;
+        height: 35px;
+        width: 100px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .container form input[type="reset"] {
+        background-color: #ad0001;
+        color: white;
+        border: none;
+        height: 35px;
+        width: 100px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .main {
+        background-color: #033852;
+        height: 100vh;
+      }
+      .container .submit {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      h2 {
+        margin: 0;
+      }
+      h5 {
+        margin: 0;
+      }
+      .foot {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #0c2635;
+      }
+      .foot last {
+        gap: 2px;
+      }
+      .foot p {
+        color: #e8f1f4;
+      }
+      .foot h4 {
+        color: #e8f1f4;
+      }
+      .foot .last span {
+        color: #e8f1f4;
+        gap: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <h1><span id="one">Business</span><span id="two">Solutions</span></h1>
+        <nav>
+          <ul>
+            <li><a href="./homepage.html" target="_self">Home</a></li>
+            <li><a href="./about.html" target="_self">About us</a></li>
+            <li><a href="./services.html" target="_self">Services</a></li>
+            <li>
+              <a href="./connectwithus.html" target="_self">Connect with us</a>
+            </li>
+            <li><a href="./contactus.html" target="_self">contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="container">
+        <h2>connect with us</h2>
+        <h5>Your search will meet destination here</h5>
+        <form action="">
+          <input type="text" placeholder="full name" name="fullname" required />
+          <input
+            type="number"
+            placeholder="phone number"
+            name="contact"
+            required
+          />
+          <input type="email" placeholder="Mail Id" name="email" required />
+
+          <select name="qualification" id="qualification" required>
+            <option value="">Select Your qualifiction</option>
+            <option value="B.E">B.E</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="Master">Master</option>
+            <option value="12th">12th</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="B.Sc">B.Sc</option>
+          </select>
+          <input
+            type="text"
+            placeholder="enter branch"
+            name="branch"
+            required
+          />
+          <label for="">upload cv</label> <br />
+          <div class="drop">
+            <input type="file" name="cv" accept="application/pdf" />
+          </div>
+          <h5>(*upload in only pdf format)</h5>
+          <div class="submit">
+            <input type="submit" /> <input type="reset" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <footer class="foot">
+    <div>
+      <h4>Contact us</h4>
+      <p>
+        <span>Email</span><span>:</span><span>pavanghadage510@gmail.com</span>
+      </p>
+      <p>
+        <span>address</span><span>:</span
+        ><span>zeal chowk narhe,pune411041</span>
+      </p>
+      <p><span>contact</span><span>:</span><span></span>7773934201</p>
+    </div>
+    <div>
+      <h4>GET UPDATED</h4>
+      <p>Blog</p>
+      <p>Facebook</p>
+      <p>twitter</p>
+    </div>
+    <div class="last">
+      <span>@</span><span>copyright</span><span>@</span><span>2025</span
+      ><span>allrights reserved.</span>
+    </div>
+  </footer>
+</html>

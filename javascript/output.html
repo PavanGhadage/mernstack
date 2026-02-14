@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Print Friends Names</title>
+  </head>
+  <body>
+    <h2>Printing My Three Friends' Names</h2>
+
+    <div id="demo" style="border: 2px solid black"></div>
+
+    <script>
+      var friend1 = "Rahul";
+      var friend2 = "Amit";
+      var friend3 = "Sneha";
+
+      //  console.log()
+      console.log(friend1);
+      console.log(friend2);
+      console.log(friend3);
+
+      // document.write()
+      document.write("<h3>Using document.write()</h3>");
+      document.write(friend1 + "<br>");
+      document.write(friend2 + "<br>");
+      document.write(friend3 + "<br>");
+
+      //  innerHTML
+      document.getElementById("demo").innerHTML =
+        "<h3>Using innerHTML</h3>" +
+        friend1 +
+        "<br>" +
+        friend2 +
+        "<br>" +
+        friend3;
+
+      // alert()
+      alert(friend1);
+      alert(friend2);
+      alert(friend3);
+    </script>
+  </body>
+</html>

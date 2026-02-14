@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .navbar-nav .nav-link {
+        font-weight: 500;
+      }
+
+      .social-icons i {
+        font-size: 18px;
+        margin-left: 10px;
+      }
+      .navbar-nav .nav-link {
+        transition: 0.3s;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #28a745 !important;
+      }
+      .navbar-nav .nav-link:active {
+        color: #28a745 !important;
+      }
+
+      .contact-icon {
+        font-size: 40px;
+        color: #28a745;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Responsive Navbar -->
+
+    <nav
+      class="navbar navbar-expand-lg navbar-light sticky-top shadow"
+      style="background-color: #e9e8e6"
+    >
+      <div class="container-fluid">
+        <a
+          class="navbar-brand font-weight-bold"
+          href="#"
+          style="font-size: 28px"
+        >
+          PAVAN
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="homepage.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="skills.html">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="portfolio.html">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="social-icons">
+          <i class="bi bi-twitter-x mx-2"></i>
+          <i class="bi bi-facebook mx-2"></i>
+          <i class="bi bi-instagram mx-2"></i>
+          <i class="bi bi-linkedin mx-2"></i>
+        </div>
+      </div>
+    </nav>
+    <!-- body -->
+    <h1 class="text-center my-5">Contact</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-5 mb-4  bg-light p-4 my-5 rounded shadow mx-4">
+
+  <!-- Address -->
+  <div class="d-flex align-items-start mb-3">
+    <div class="contact-icon mr-3">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+
+    <div>
+      <h5 class="mb-1">Address</h5>
+      <p class="mb-0">Zeal Chowk, Narhe, Pune 411041</p>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="d-flex align-items-start mb-3">
+    <div class="contact-icon mr-3">
+       <i class="bi bi-envelope-fill"></i>
+    </div>
+
+    <div>
+      <h5 class="mb-1">E-mail</h5>
+      <p class="mb-0">pavanghadage510@gmail.com</p>
+    </div>
+  </div>
+  <div class="d-flex align-items-start mb-3">
+    <div class="contact-icon mr-3">
+      <i class="bi bi-telephone-fill"></i>
+
+    </div>
+
+    <div>
+      <h5 class="mb-1">Call</h5>
+      <p class="mb-0">7773934201</p>
+    </div>
+  </div>
+
+ <div class="embed-responsive embed-responsive-16by9 mt-3">
+  <iframe 
+    class="embed-responsive-item"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.820152103522!2d73.82380007518984!3d18.44647318263285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29524cd155465%3A0x30056a1b47feef41!2sZeal%20College%20Chowk%2C%20Mokarwadi%2C%20Pune%2C%20Maharashtra%20411041!5e0!3m2!1sen!2sin"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+</div>
+
+
+</div>
+ <div class="col-12 col-md-5 mb-4  bg-light p-4 my-5 rounded shadow mx-4">
+
+  <form action="">
+    <div class="row">  
+
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            placeholder="Enter your name" 
+            required>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            placeholder="Enter your email" 
+            required>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="subject" 
+        placeholder="Enter subject" 
+        required>
+    </div>
+    <div class="form-group">
+  <label for="message">Message</label>
+  <textarea 
+    class="form-control" 
+    id="message" 
+    rows="5"
+    placeholder="Write your message..."></textarea>
+</div>
+<div class="text-center">
+  <button type="submit" class="btn btn-secondary">
+    Send Message
+  </button>
+</div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer style="background-color: #e9e8e6" class="p-1">
+      <p class="text-center text-dark mt-4">
+        @ Copyright <b>Pavan</b> All Rights Reserved
+      </p>
+      <div class="social-icons d-flex mx-2 text-center justify-content-center">
+        <i class="bi bi-twitter-x mx-2"></i>
+        <i class="bi bi-facebook mx-2"></i>
+        <i class="bi bi-instagram mx-2"></i>
+        <i class="bi bi-linkedin mx-2"></i>
+      </div>
+      <p class="text-center my-4">
+        Designed by
+        <span class="text-success">BootstrapMade</span>
+        Distributed by
+        <span class="text-success">ThemeWagon</span>
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

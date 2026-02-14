@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* .main {
+        background-color: #063d57;
+
+        width: 100%;
+        height: min-content;
+      } */
+      body {
+        background-color: #063d57;
+      }
+      header {
+        border: 2px solid black;
+        height: 130px;
+        background-color: #0c2635;
+        position: relative;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 70px;
+        font-family: "Momo";
+        padding-top: 10px;
+        padding-left: 150px;
+        margin: 0;
+      }
+      header #one {
+        color: #8f9ba2;
+      }
+      header #two {
+        color: #e8f1f4;
+      }
+      header nav {
+        height: 60px;
+        border: none;
+        position: absolute;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        background-color: #dcdcdc;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+      }
+      header nav ul li {
+        color: #5a6770;
+        font-weight: 800;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        font-size: 15px;
+      }
+      header nav ul li a {
+        text-decoration: none;
+        height: 70px;
+        width: fit-content;
+        height: 100%;
+        color: #0c2635;
+      }
+      header nav ul li a:active {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      header nav ul li a:hover {
+        color: #5a6770;
+        text-decoration: none;
+      }
+      .container {
+      }
+      .main {
+        background-color: #063d57;
+        margin: 0;
+        padding: 0;
+
+        width: 100%;
+      }
+      .container {
+        justify-content: start;
+        width: 79%;
+        /* top: 70px; */
+        left: 10%;
+        border-radius: 5px;
+        margin: 80px auto 40px;
+        align-items: start;
+        text-align: start;
+        background-color: #ffffff;
+        border: none;
+        padding: 10px;
+        /* position: absolute; */
+        top: 80px;
+        /* width: 100%; */
+        display: grid;
+        gap: 30px;
+        row-gap: 30px;
+
+        justify-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(2, 250px);
+      }
+      .container .container1:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+
+      .container .container1 {
+        border: 2px solid #7c7c7c;
+        border-radius: 10px;
+        width: 250px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+      }
+      .container .container1 .imgwrap {
+        align-items: center;
+        text-align: center;
+      }
+      .container .container1 img {
+        height: 140px;
+        width: 150px;
+        border-radius: 50%;
+        object-fit: fill;
+      }
+      .foot {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #0c2635;
+      }
+      .foot last {
+        gap: 2px;
+      }
+      .foot p {
+        color: #e8f1f4;
+      }
+      .foot h4 {
+        color: #e8f1f4;
+      }
+      .foot .last span {
+        color: #e8f1f4;
+        gap: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <h1><span id="one">Business</span><span id="two">Solutions</span></h1>
+        <nav>
+          <ul>
+            <li><a href="./homepage.html" target="_self">Home</a></li>
+            <li><a href="./about.html" target="_self">About us</a></li>
+            <li><a href="./services.html" target="_self">Services</a></li>
+            <li>
+              <a href="./connectwithus.html" target="_self">Connect with us</a>
+            </li>
+            <li><a href="./contactus.html" target="_self">contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="container">
+        <div class="container1">
+          <div class="imgwrap">
+            <img src="assets/web2.jpg" alt="" />
+          </div>
+
+          <h3>Web development services</h3>
+          <ul>
+            <li>custom website design and development</li>
+            <li>E-commeerce solutions</li>
+            <li>Content managment system(CMS)</li>
+            <li>Progressive web apps</li>
+            <li>website maintaince and optimization</li>
+          </ul>
+        </div>
+        <div class="container1">
+          <div class="imgwrap">
+            <img src="assets/software.jpg" alt="" />
+          </div>
+
+          <h3>Software Devolpment services</h3>
+          <ul>
+            <li>custom software devlopment</li>
+            <li>enterprise software solutions</li>
+            <li>Desktop and mobile application devolopment</li>
+            <li>API devolopment and integration</li>
+            <li>Cloud-based software solutions</li>
+          </ul>
+        </div>
+        <div class="container1">
+          <div class="imgwrap">
+            <img src="assets/mobile.jpg" alt="" />
+          </div>
+
+          <h3>Mobile app Devolpment</h3>
+          <ul>
+            <li>Native app devolopment(IOS,Android)</li>
+            <li>Cross-platform app devlopment(Flutter,React,Native)</li>
+            <li>App maintaince and upgrades</li>
+            <li>UI/UX design for mobile apps</li>
+            <li>Integration with backend systems and APIS</li>
+          </ul>
+        </div>
+        <div class="container1">
+          <div class="imgwrap">
+            <img src="assets/consulting.jpg" alt="" />
+          </div>
+
+          <h3>IT consulting and support</h3>
+          <ul>
+            <li>Technology strategy and roadmap devolpement</li>
+            <li>cloud computing solutions and migration services</li>
+            <li>IT infrastrucure setup and managment</li>
+            <li>cyber security consulting and solutions</li>
+            <li>Technical support and troubleshooting</li>
+          </ul>
+        </div>
+        <div class="container1">
+          <div class="imgwrap">
+            <img src="assets/digital.jpg" alt="" />
+          </div>
+
+          <h3>Digital Marketing and SEO</h3>
+          <ul>
+            <li>Search Engine Optimization(SEO)</li>
+            <li>Social media marketing an management</li>
+            <li>pay-per-click(PPC) advertising</li>
+            <li>Email marketing campaigns</li>
+            <li>Analytics and performance optimization</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+  <footer class="foot">
+    <div>
+      <h4>Contact us</h4>
+      <p>
+        <span>Email</span><span>:</span><span>pavanghadage510@gmail.com</span>
+      </p>
+      <p>
+        <span>address</span><span>:</span
+        ><span>zeal chowk narhe,pune411041</span>
+      </p>
+      <p><span>contact</span><span>:</span><span></span>7773934201</p>
+    </div>
+    <div>
+      <h4>GET UPDATED</h4>
+      <p>Blog</p>
+      <p>Facebook</p>
+      <p>twitter</p>
+    </div>
+    <div class="last">
+      <span>@</span><span>copyright</span><span>@</span><span>2025</span
+      ><span>allrights reserved.</span>
+    </div>
+  </footer>
+</html>
