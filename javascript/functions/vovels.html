@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = prompt("enter the string");
+
+      function myvowels(str) {
+        for (let i = 0; i < str.length; i++) {
+          if (
+            str[i] === "a" ||
+            str[i] === "e" ||
+            str[i] === "i" ||
+            str[i] === "o" ||
+            str[i] === "u"
+          ) {
+            document.write(str[i] + " ");
+          }
+        }
+      }
+
+      myvowels(str);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt("enetr a string");
+      function ispalindrome(num) {
+        let str = "";
+
+        for (let i = num.length - 1; i >= 0; i--) {
+          str += num[i];
+        }
+        if (num == str) {
+          document.write("true");
+        } else {
+          document.write("false");
+        }
+      }
+      ispalindrome(num);
+    </script>
+  </body>
+</html>

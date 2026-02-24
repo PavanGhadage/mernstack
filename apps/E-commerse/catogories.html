@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyShop</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .card-img-top {
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .card {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gradient" style="background-color: rgb(88, 123, 122)">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="assets/img.webp"
+            alt="Logo"
+            class="rounded-circle me-2"
+            style="width: 40px; height: 40px; object-fit: cover"
+          />
+          <span class="fw-bold">MyShop</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catogories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
+
+          <form class="d-flex me-3">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+
+          <div class="d-flex">
+            <a href="loginup.html" class="btn btn-outline-light me-2">
+              Login
+            </a>
+            <a href="register.html" class="btn btn-warning"> Register </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Products Section1-->
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img
+              src="assets/samsung24.jpg"
+              class="card-img-top"
+              alt="Samsung S24"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">Samsung S24</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#s24Modal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img src="assets/apple.jpg" class="card-img-top" alt="iPhone" />
+            <div class="card-body text-center">
+              <h5 class="card-title">iPhone</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#iphoneModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pro2 -->
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img src="assets/nike.jpg" class="card-img-top" alt="Samsung S24" />
+            <div class="card-body text-center">
+              <h5 class="card-title">Nike</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#nikeModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img src="assets/redchief.jpg" class="card-img-top" alt="iPhone" />
+            <div class="card-body text-center">
+              <h5 class="card-title">redchief</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#redchiefModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pro3 -->
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img
+              src="assets/rolex.webp"
+              class="card-img-top"
+              alt="Samsung S24"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">rolex</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#rolexModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img src="assets/titan.webp" class="card-img-top" alt="iPhone" />
+            <div class="card-body text-center">
+              <h5 class="card-title">titan</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#titanModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pro4 -->
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img
+              src="assets/linen.jpg"
+              class="card-img-top"
+              alt="Samsung S24"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title">linen</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#linenModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-6">
+          <div class="card shadow h-100 w-50 mx-auto">
+            <img src="assets/cotton.webp" class="card-img-top" alt="iPhone" />
+            <div class="card-body text-center">
+              <h5 class="card-title">cotton</h5>
+              <a
+                href="#"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#cottonModal"
+              >
+                View Product
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Samsung S24 Modal -->
+    <div class="modal fade" id="s24Modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Samsung Galaxy S24</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/samsung24.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Samsung Galaxy S24</h4>
+                <p class="text-muted">
+                  Experience next-level performance with the Samsung Galaxy S24.
+                  Powered by the latest processor, stunning AMOLED display, and
+                  advanced AI camera features.
+                </p>
+
+                <h5 class="text-primary mb-3">₹79,999</h5>
+
+                <p class="fs-5 text-warning">
+                  &#9733; &#9733; &#9733; &#9733; &#9733;
+                  <span class="text-muted fs-6">(4.8 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- iPhone Modal -->
+    <div class="modal fade" id="iphoneModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Apple iPhone 15</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/apple.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Apple iPhone 15</h4>
+                <p class="text-muted">
+                  The Apple iPhone 15 features a powerful A-series chip,
+                  advanced camera system, and stunning Super Retina display.
+                  Experience smooth performance and premium design.
+                </p>
+
+                <h5 class="text-primary mb-3">₹89,999</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <span class="text-muted">(5.0 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nike Modal -->
+    <div class="modal fade" id="nikeModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nike Air Max</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/nike.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Nike Air Max</h4>
+                <p class="text-muted">
+                  Nike Air Max offers superior comfort, stylish design, and
+                  long-lasting durability. Perfect for sports and casual wear.
+                </p>
+
+                <h5 class="text-primary mb-3">₹6,999</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <span class="text-muted">(4.6 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Red Chief Modal -->
+    <div class="modal fade" id="redchiefModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Red Chief Leather Shoes</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/redchief.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Red Chief Leather Shoes</h4>
+                <p class="text-muted">
+                  Premium leather shoes from Red Chief offering elegance,
+                  durability, and all-day comfort for formal wear.
+                </p>
+
+                <h5 class="text-primary mb-3">₹4,499</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <span class="text-muted">(4.0 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rolex Modal -->
+    <div class="modal fade" id="rolexModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Rolex Submariner</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/rolex.webp"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Rolex Submariner</h4>
+                <p class="text-muted">
+                  The Rolex Submariner is a luxury timepiece known for
+                  precision, durability, and iconic design. Perfect for formal
+                  and premium occasions.
+                </p>
+
+                <h5 class="text-primary mb-3">₹8,50,000</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <span class="text-muted">(5.0 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Titan Modal -->
+    <div class="modal fade" id="titanModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Titan Analog Watch</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/titan.webp"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Titan Analog Watch</h4>
+                <p class="text-muted">
+                  Stylish and elegant Titan watch designed for everyday wear.
+                  Combines durability with modern fashion for both casual and
+                  formal occasions.
+                </p>
+
+                <h5 class="text-primary mb-3">₹5,999</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <span class="text-muted">(4.7 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linen Modal -->
+    <div class="modal fade" id="linenModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Premium Linen Shirt</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/linen.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Premium Linen Shirt</h4>
+                <p class="text-muted">
+                  Breathable and lightweight linen shirt designed for summer
+                  comfort. Perfect for casual and semi-formal wear.
+                </p>
+
+                <h5 class="text-primary mb-3">₹2,499</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-half text-warning"></i>
+                  <span class="text-muted">(4.5 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cotton Modal -->
+    <div class="modal fade" id="cottonModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Classic Cotton Shirt</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="assets/cotton.jpg"
+                  class="img-fluid"
+                  style="max-height: 300px; object-fit: contain"
+                />
+              </div>
+
+              <div class="col-md-6">
+                <h4>Classic Cotton Shirt</h4>
+                <p class="text-muted">
+                  Soft and durable cotton shirt suitable for daily wear.
+                  Provides comfort with a stylish modern look.
+                </p>
+
+                <h5 class="text-primary mb-3">₹1,999</h5>
+
+                <p>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star text-warning"></i>
+                  <span class="text-muted">(4.2 / 5)</span>
+                </p>
+
+                <button class="btn btn-success w-100 mt-3">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
