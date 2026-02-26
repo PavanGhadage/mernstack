@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj1 = {
+        empid: 1,
+        empname: "pavan",
+        empage: 25,
+        hpspecs: {
+          Brand: "HP",
+          Specialty: "ReliableAndDurableLaptops",
+          Design: "SlimAndModern",
+          Performance: "GoodForStudentsOfficeAndGaming",
+          Battery: "LongBackup",
+          Display: "FullHDAnd4KOptions",
+          Processor: "IntelCoreAndAMDRyzen",
+          Graphics: "IntegratedAndNVIDIAOptions",
+          GamingSeries: "HPVictusAndHPOmen",
+          BusinessSeries: "HPEliteBookAndHPProBook",
+          Security: "FingerprintAndTPM",
+          Price: "BudgetToPremium",
+          Service: "WideServiceNetwork",
+        },
+      };
+      document.write("<h3>Laptop Details</h3>");
+
+      for (let keys in obj1.hpspecs) {
+        document.writeln(`${keys} : ${obj1.hpspecs[keys]} </br>`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj1 = {
+        id: 1,
+        name: "pavan",
+        age: 23,
+        email: "pavan@gmail.com",
+        city: "pune",
+      };
+      let obj2 = {
+        id: 2,
+        name: "ravan",
+        age: 23,
+        email: "ravan@gmail.com",
+        city: "mumbai",
+      };
+      let obj3 = {
+        id: 3,
+        name: "gavan",
+        age: 29,
+        email: "gavan@gmail.com",
+        city: "nagpur",
+      };
+      document.write(`<h1> values fpor object1 </h1> </br>`);
+      for (let keys in obj1) {
+        document.writeln(`${keys}: ${obj1[keys]} </br>`);
+      }
+      document.write(`<h1> values fpor object2 </h1> </br>`);
+      for (let keys in obj2) {
+        document.writeln(`${keys}: ${obj2[keys]} </br>`);
+      }
+      document.write(`<h1> values fpor object3 </h1> </br>`);
+      for (let keys in obj3) {
+        document.writeln(`${keys}: ${obj3[keys]} </br>`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<script>
+  let obj1 = {
+    id: 1,
+    name: "pavan",
+    age: 23,
+    city: "pune",
+    email: "pavanghadage510@gmail.com",
+  };
+
+  document.write("<h3>Original Data</h3>");
+  for (let keys in obj1) {
+    document.writeln(`${keys} : ${obj1[keys]} <br>`);
+  }
+
+  let name1 = prompt("Enter the name to be updated");
+  obj1["name"] = name1;
+
+  let age1 = +prompt("Enter the new age");
+  obj1["age"] = age1;
+
+  document.write("<h3>Data After Updating</h3>");
+  for (let keys in obj1) {
+    document.writeln(`${keys} : ${obj1[keys]} <br>`);
+  }
+</script>

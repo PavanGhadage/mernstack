@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function construc(id, name, email, city, age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.city = city;
+        this.age = age;
+      }
+
+      let id1 = prompt("enter the id");
+      let name1 = prompt("enter the name");
+      let mail1 = prompt("enter the email");
+      let city1 = prompt("enter the city name");
+      let age1 = prompt("enter the age");
+      let id2 = prompt("enter the id");
+      let name2 = prompt("enter the name");
+      let mail2 = prompt("enter the email");
+      let city2 = prompt("enter the city name");
+      let age2 = prompt("enter the age");
+
+      let obj1 = new construc(id1, name1, mail1, city1, age1);
+      let obj2 = new construc(id2, name2, mail2, city2, age2);
+
+      for (let keys in obj1) {
+        document.writeln(`${keys} : ${obj1[keys]} <br>`);
+      }
+
+      for (let key in obj2) {
+        document.writeln(`${key} : ${obj2[key]} <br>`);
+      }
+    </script>
+    <br />
+  </body>
+</html>
