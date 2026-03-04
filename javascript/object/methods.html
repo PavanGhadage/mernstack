@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj1 = {
+        name: "Pavan",
+        age: 14,
+        empid: 1,
+        sal: 25000,
+        status: "unmarried",
+        myfunction: function () {
+          document.write("Name : " + this.name + "<br>");
+          document.write("Age : " + this.age + "<br>");
+          document.write("Emp ID : " + this.empid + "<br>");
+          document.write("Salary : " + this.sal + "<br>");
+          document.write("Status : " + this.status + "<br>");
+          if (this.age <= 18) {
+            document.write(`you are not elegible for vote`);
+          } else {
+            document.write(`you are  elegible for vote`);
+          }
+        },
+      };
+      obj1.myfunction();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      let size = prompt("enter the size of array ");
+      for (let i = 0; i < size; i++) {
+        arr[i] = +prompt(` enter the number ${i + 1}`);
+      }
+      let max = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      console.log(arr);
+      console.log(`the largest element in array is ${max}`);
+    </script>
+  </body>
+</html>

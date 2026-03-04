@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function custmor(cust_id, cust_name, cust_age, cust_balance) {
+        ((this.id = cust_id),
+          (this.name = cust_name),
+          (this.age = cust_age),
+          (this.balance = cust_balance));
+
+        this.caltax = function () {
+          let tax;
+
+          if (this.age > 60) {
+            tax = this.balance * 0.12;
+          } else if (this.age <= 60 && this.age >= 40) {
+            tax = this.balance * 0.01;
+          } else if (this.age <= 40 && this.age >= 18) {
+            tax = this.balance * (0.08 / 100);
+          } else {
+            tax = this.balance * (0.05 / 100);
+          }
+          document.write(
+            `the tax of ${this.name} on the income ${this.balance} is ${tax} </br>`,
+          );
+        };
+      }
+
+      let obj1 = new custmor(1, "pavan", 27, 500000);
+      let obj2 = new custmor(2, "ravan", 56, 470000);
+      let obj3 = new custmor(3, "sakshi", 17, 7854097);
+      let obj4 = new custmor(4, "prashant", 89, 500000);
+      let obj5 = new custmor(5, "riya", 45, 800000);
+      obj1.caltax();
+      obj2.caltax();
+      obj3.caltax();
+      obj4.caltax();
+      obj5.caltax();
+    </script>
+  </body>
+</html>
