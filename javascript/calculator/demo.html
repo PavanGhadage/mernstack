@@ -1,0 +1,195 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 5px;
+        border: 2px solid black;
+        height: fit-content;
+        width: fit-content;
+        padding: 10px;
+      }
+      .operation {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <input type="number" id="num1" placeholder="enter the number" />
+        <input type="number" id="num2" placeholder="enter the number" />
+      </div>
+
+      <div>
+        <input type="text" readonly id="op" placeholder="output" />
+      </div>
+      <div class="operation">
+        <button class="bg-primary" onclick="cal('+')" type="button">
+          addition
+        </button>
+        <button class="bg-primary" onclick="cal('-')" type="button">
+          substraction
+        </button>
+        <button class="bg-primary" onclick="cal('/')" type="button">
+          division
+        </button>
+        <button class="bg-primary" onclick="cal('*')" type="button">
+          multiply
+        </button>
+      </div>
+
+      <script>
+        // function add() {
+        //   let num12 = Number(document.getElementById("num1").value);
+        //   let num22 = Number(document.getElementById("num2").value);
+        //   let op1 = num12 + num22;
+        //   document.getElementById("op").value = op1;
+        // }
+        // function sub() {
+        //   let num12 = Number(document.getElementById("num1").value);
+        //   let num22 = Number(document.getElementById("num2").value);
+        //   let op1 = num12 - num22;
+        //   document.getElementById("op").value = op1;
+        // }
+        // function mul() {
+        //   let num12 = Number(document.getElementById("num1").value);
+        //   let num22 = Number(document.getElementById("num2").value);
+        //   let op1 = num12 * num22;
+        //   document.getElementById("op").value = op1;
+        // }
+        // function div() {
+        //   let num12 = Number(document.getElementById("num1").value);
+        //   let num22 = Number(document.getElementById("num2").value);
+        //   let op1 = num12 / num22;
+        //   document.getElementById("op").value = op1;
+        // }
+        function cal(op) {
+          let result = "";
+          let num11 = Number(document.getElementById("num1").value);
+          let num12 = Number(document.getElementById("num2").value);
+          if (op == "+") {
+            result = num11 + num12;
+          }
+          if (op == "-") {
+            result = num11 - num12;
+          }
+          if (op == "*") {
+            result = num11 * num12;
+          }
+          if (op == "/") {
+            result = num11 / num12;
+          }
+          document.getElementById("op").value = result;
+        }
+      </script>
+    </div>
+  </body>
+</html> -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+      }
+
+      .calculator {
+        width: 320px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calculator card shadow p-4">
+      <h4 class="text-center mb-3">Calculator</h4>
+
+      <div class="row g-2 mb-3">
+        <div class="col">
+          <input
+            type="number"
+            id="num1"
+            class="form-control"
+            placeholder="Number 1"
+          />
+        </div>
+
+        <div class="col">
+          <input
+            type="number"
+            id="num2"
+            class="form-control"
+            placeholder="Number 2"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          id="op"
+          class="form-control text-center fw-bold"
+          placeholder="Result"
+          readonly
+        />
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" onclick="cal('+')">Addition</button>
+
+        <button class="btn btn-danger" onclick="cal('-')">Subtraction</button>
+
+        <button class="btn btn-success" onclick="cal('*')">Multiply</button>
+
+        <button class="btn btn-warning" onclick="cal('/')">Division</button>
+      </div>
+    </div>
+
+    <script>
+      function cal(op) {
+        let n1 = Number(document.getElementById("num1").value);
+        let n2 = Number(document.getElementById("num2").value);
+        let result = "";
+
+        if (op == "+") result = n1 + n2;
+        if (op == "-") result = n1 - n2;
+        if (op == "*") result = n1 * n2;
+        if (op == "/") result = n1 / n2;
+
+        document.getElementById("op").value = result;
+      }
+    </script>
+  </body>
+</html>
