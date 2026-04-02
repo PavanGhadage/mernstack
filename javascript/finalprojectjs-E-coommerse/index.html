@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Store</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: #f4f6f9;
+        font-family: Arial;
+      }
+
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card img {
+        height: 200px;
+        object-fit: contain;
+      }
+      .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .logo {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <img
+            class="logo"
+            src="https://i.vimeocdn.com/player/329499?sig=85e0febaa7d3a011c11a4bdbdb857854c06938e5cfea786c7b7ce9a6b911bd04&v=1"
+            alt=""
+          />
+          <a class="navbar-brand ms-2">MyStore</a>
+        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <input
+            id="search"
+            class="form-control mx-lg-3 my-2 my-lg-0"
+            placeholder="Search products"
+          />
+
+          <a href="cart.html" class="btn btn-warning ms-lg-3"> View Cart </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <select id="categoryFilter" class="form-select">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+            <option value="accessories">Accessories</option>
+            <option value="sport">sports</option>
+            <option value="mobile">mobile</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select id="sort" class="form-select">
+            <option value="">Sort By</option>
+            <option value="low">Price Low - High</option>
+            <option value="high">Price High - Low</option>
+            <option value="name">Name A - Z</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row" id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Mouse",
+          price: 499,
+          category: "electronics",
+          image:
+            "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/peripherals/input-devices/dell/mouse/wm126/dell-mouse-wm126-504x350.jpg?fmt=jpg",
+        },
+
+        {
+          id: 2,
+          name: "Shoes",
+          price: 1999,
+          category: "fashion",
+          image: "https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg",
+        },
+
+        {
+          id: 3,
+          name: "Watch",
+          price: 2999,
+          category: "electronics",
+          image:
+            "https://www.sonatawatches.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw7b993993/images/Sonata/Catalog/7152QM01_1.jpg?sw=600&sh=600",
+        },
+
+        {
+          id: 4,
+          name: "Bag",
+          price: 899,
+          category: "accessories",
+          image:
+            "https://safaribags.com/cdn/shop/files/2_3d6acc65-50a9-4d45-b83c-31bb315d7b05_1024x.jpg?v=1707731912",
+        },
+
+        {
+          id: 5,
+          name: "Keyboard",
+          price: 799,
+          category: "electronics",
+          image:
+            "https://www.lapcare.com/cdn/shop/files/1_14b481a1-e43f-4c3d-81b4-2483f5990ec1.webp?v=1757326365&width=2048",
+        },
+
+        {
+          id: 6,
+          name: "Tshirt",
+          price: 499,
+          category: "fashion",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWMX6uoujzeiJ7smEWpkcrprZAzobhRMvHtA&s",
+        },
+        {
+          id: 7,
+          name: "bat",
+          price: 1999,
+          category: "sport",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRgxa0g_4ZTer9-nVphyZguj7-IAlbKiaSFw&s",
+        },
+        {
+          id: 8,
+          name: "ball",
+          price: 199,
+          category: "sport",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGx5-yriTKpMNV0wQTLO9xeFW06BvY3kCnWA&s",
+        },
+        {
+          id: 9,
+          name: "iphone 17",
+          price: 199,
+          category: "mobile",
+          image:
+            "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MGFL4?wid=4000&hei=4000&fmt=jpeg&qlt=90&.v=1757534573134",
+        },
+        {
+          id: 10,
+          name: "samsung s-25 ultra",
+          price: 199,
+          category: "mobile",
+          image:
+            "https://www.designinfo.in/wp-content/uploads/2020/12/SAMSUNG-Galaxy-S25-Ultra-5G-12GB-RAM-256GB-Titanium-Black-Unlocked-2.webp",
+        },
+      ];
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let currentProducts = [...products];
+
+      function displayProducts(list) {
+        const productList = document.getElementById("productList");
+
+        productList.innerHTML = "";
+
+        if (list.length === 0) {
+          productList.innerHTML = `
+        <div class="text-center mt-5">
+        <h3 class="text-danger">Result Not Found</h3>
+        </div>
+            `;
+
+          return;
+        }
+
+        list.forEach((p) => {
+          productList.innerHTML += `
+
+       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+     <div class="card">
+
+      <img src="${p.image}" class="card-img-top">
+
+       <div class="card-body">
+
+       <h5>${p.name}</h5>
+
+       <p>₹${p.price}</p>
+
+       <button class="btn btn-primary"
+       onclick="addToCart(${p.id})">
+
+       Add to Cart
+
+        </button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+        });
+      }
+
+      // addtocartdta
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart");
+      }
+
+      // forsearchingdata
+      document.getElementById("search").addEventListener("input", function () {
+        // const value = this.value.toLowerCase();
+
+        currentProducts = products.filter((p) =>
+          p.name.toLowerCase().includes(this.value.toLowerCase()),
+        );
+
+        displayProducts(currentProducts);
+      });
+
+      //catogorydta
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", function () {
+          const category = this.value;
+
+          if (category === "all") {
+            currentProducts = [...products];
+          } else {
+            currentProducts = products.filter((p) => p.category === category);
+          }
+
+          displayProducts(currentProducts);
+        });
+
+      //sorting
+      document.getElementById("sort").addEventListener("change", function () {
+        const type = this.value;
+
+        if (type === "low") {
+          currentProducts.sort((a, b) => a.price - b.price);
+        }
+
+        if (type === "high") {
+          currentProducts.sort((a, b) => b.price - a.price);
+        }
+
+        if (type === "name") {
+          currentProducts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        displayProducts(currentProducts);
+      });
+
+      displayProducts(products);
+    </script>
+  </body>
+</html>

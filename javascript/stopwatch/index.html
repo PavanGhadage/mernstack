@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stopwatch</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .stopwatch {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        align-items: center;
+        height: auto;
+        width: 35%;
+        gap: 10px;
+        padding: 10px;
+      }
+      .actions {
+        height: fit-content;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      #hrs,
+      #min,
+      #sec,
+      #nano {
+        border: 2px solid black;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stopwatch">
+      <h1>Stopwatch</h1>
+
+      <div class="timing">
+        <span id="hrs">00</span> : <span id="min">00</span> :
+        <span id="sec">00</span> : <span id="nano">00</span>
+      </div>
+      <div class="actions">
+        <button type="button" onclick="start()">start</button>
+        <button type="button" onclick="stop()">stop</button>
+        <button type="button" onclick="reset()">reset</button>
+      </div>
+    </div>
+
+    <script>
+      let x = null;
+      let nano = 0;
+      let sec = 0;
+      let min = 0;
+      let hrs = 0;
+
+      function stopwatch() {
+        if (nano == 99) {
+          sec++;
+          nano = 0;
+        }
+        if (sec == 59) {
+          min++;
+          sec = 0;
+        }
+        if (min == 59) {
+          hrs++;
+          min = 0;
+        }
+
+        document.getElementById("hrs").innerHTML = hrs
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("min").innerHTML = min
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("sec").innerHTML = sec
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("nano").innerHTML = nano
+          .toString()
+          .padStart(2, "0");
+
+        nano++;
+      }
+
+      function start() {
+        if (x == null) {
+          x = setInterval(stopwatch, 10);
+        }
+      }
+
+      function stop() {
+        if (x != null) {
+          clearInterval(x);
+          x = null;
+        }
+      }
+
+      function reset() {
+        clearInterval(x);
+        x = null;
+
+        nano = 0;
+        sec = 0;
+        min = 0;
+        hrs = 0;
+
+        document.getElementById("hrs").innerHTML = "00";
+        document.getElementById("min").innerHTML = "00";
+        document.getElementById("sec").innerHTML = "00";
+        document.getElementById("nano").innerHTML = "00";
+      }
+    </script>
+  </body>
+</html>

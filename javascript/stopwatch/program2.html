@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .stopwatch {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        align-items: center;
+        height: auto;
+        width: 35%;
+        gap: 8px;
+        padding: 10px;
+      }
+      .actions {
+        height: fit-content;
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+      }
+      #hrs,
+      #min,
+      #sec,
+      #nano {
+        border: 2px solid black;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stopwatch">
+      <h1>Stopwatch</h1>
+
+      <div class="timing">
+        <span id="hrs">00</span> : <span id="min">00</span> :
+        <span id="sec">00</span>: <span id="nano">00</span>
+      </div>
+      <div class="actions">
+        <button type="button">start</button>
+        <button type="button">stop</button>
+        <button type="button">reset</button>
+      </div>
+    </div>
+
+    <script>
+      let min = 0;
+      let hrs = 0;
+      let sec = 0;
+      let nanosec = 0;
+      let x = null;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 50%;
+        text-align: center;
+        border: 2px solid black;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .form input {
+        width: 60%;
+        padding: 5px;
+      }
+
+      .butt {
+        width: 30%;
+      }
+
+      .output {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #mydiv {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form">
+        <input
+          type="text"
+          placeholder="enter your name"
+          id="ip"
+          oninput="colorchar()"
+        />
+
+        <button type="button" class="butt" onclick="showname()">Submit</button>
+      </form>
+
+      <div id="mydiv"></div>
+
+      <div id="op" class="output"></div>
+    </div>
+
+    <script>
+      let colors = [
+        "red",
+        "green",
+        "blue",
+        "black",
+        "purple",
+        "yellow",
+        "orange",
+      ];
+
+      let count = 1;
+
+      function showname() {
+        let name = document.getElementById("ip").value;
+
+        document.getElementById("op").innerHTML +=
+          count + ". Hello " + name + "<br>";
+
+        count++;
+
+        document.getElementById("ip").value = "";
+      }
+
+      function colorchar() {
+        let value = document.getElementById("ip").value;
+
+        let result = "Hello ";
+
+        for (let i = 0; i < value.length; i++) {
+          result += "<span>" + value[i] + "</span>";
+        }
+
+        document.getElementById("mydiv").innerHTML = result;
+
+        document.body.style.backgroundColor =
+          colors[value.length % colors.length];
+      }
+    </script>
+  </body>
+</html>

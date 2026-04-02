@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyStore</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #eef2ff, #f8fafc);
+        font-family: Segoe UI;
+      }
+
+      .navbar {
+        background: linear-gradient(90deg, #1e3a8a, #4f46e5);
+      }
+
+      .navbar-brand {
+        font-weight: 600;
+        font-size: 22px;
+        color: white;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .filter-box {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .card {
+        border: none;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .card img {
+        height: 200px;
+        object-fit: contain;
+        padding: 15px;
+        background: #f8fafc;
+      }
+
+      .price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #4f46e5;
+      }
+
+      .btn-primary {
+        background: #4f46e5;
+        border: none;
+        border-radius: 25px;
+      }
+
+      .btn-primary:hover {
+        background: #4338ca;
+      }
+
+      .search-input {
+        border-radius: 25px;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center">
+          <img
+            class="logo me-2"
+            src="https://cdn-icons-png.flaticon.com/512/8828/8828150.png"
+          />
+          Shopping Cart
+        </a>
+
+        <div>
+          <a href="index.html" class="btn btn-light me-2">Home</a>
+
+          <a href="cart.html" class="btn btn-warning">
+            Cart (<span id="cartCount">0</span>)
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="filter-box">
+        <div class="row g-3">
+          <div class="col-md-5">
+            <input
+              id="search"
+              class="form-control search-input"
+              placeholder="Search products..."
+            />
+          </div>
+
+          <div class="col-md-3">
+            <select id="categoryFilter" class="form-select">
+              <option value="all">All Categories</option>
+              <option value="gadgets">Gadgets</option>
+              <option value="clothing">Clothing</option>
+              <option value="bags">Bags</option>
+              <option value="cosmetics">Cosmetics</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <select id="sort" class="form-select">
+              <option value="">Sort Products</option>
+              <option value="low">Price Low → High</option>
+              <option value="high">Price High → Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row" id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Smartwatch",
+          price: 519,
+          category: "gadgets",
+          image:
+            "https://temptindia.com/cdn/shop/files/tempt_streak-x_smartwatch_2-01-hd-display-grey_jpg.png?v=1773046787",
+        },
+        {
+          id: 2,
+          name: "Headphones",
+          price: 1799,
+          category: "gadgets",
+          image: "https://m.media-amazon.com/images/I/61Hs68+4bTL.jpg",
+        },
+
+        {
+          id: 3,
+          name: "Shoes",
+          price: 1999,
+          category: "clothing",
+          image:
+            "https://sreeleathers.com/cdn/shop/files/27601_450_7_copy2.jpg?v=1696394601",
+        },
+
+        {
+          id: 3,
+          name: "Watch",
+          price: 2999,
+          category: "gadgets",
+          image:
+            "https://www.carlington.in/cdn/shop/files/Carlington_elite_analog_ladies_watch_CT_2007_roseold.jpg?v=1696689630&width=2400",
+        },
+
+        {
+          id: 4,
+          name: "travelBag",
+          price: 899,
+          category: "bags",
+          image:
+            "https://icon.in/cdn/shop/files/1_bac510b8-1d21-4783-afa8-c024ba196ae1.jpg?v=1735290357",
+        },
+
+        {
+          id: 5,
+          name: "Keyboard",
+          price: 799,
+          category: "gadgets",
+          image:
+            "https://www.lapcare.com/cdn/shop/files/1_14b481a1-e43f-4c3d-81b4-2483f5990ec1.webp",
+        },
+
+        {
+          id: 6,
+          name: "Tshirt",
+          price: 499,
+          category: "clothing",
+          image:
+            "https://onesky.in/cdn/shop/files/1_46102633-428b-4023-920c-579029aba5b4.jpg?v=1756455791",
+        },
+        {
+          id: 7,
+          name: "Lipstick",
+          price: 399,
+          category: "cosmetics",
+          image:
+            "https://assets.ajio.com/medias/sys_master/root/20240112/sclp/65a0faea74cb305fe013f4ab/-473Wx593H-4943419670-russianred-MODEL.jpg",
+        },
+
+        {
+          id: 8,
+          name: "Face Cream",
+          price: 599,
+          category: "cosmetics",
+          image:
+            "https://artdeco.com/cdn/shop/collections/Kategoriebanner-Pflege-Gesichtspflege_600x400_unlimited.jpg?v=1686058170&width=1024",
+        },
+
+        {
+          id: 9,
+          name: "Perfume",
+          price: 1299,
+          category: "cosmetics",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1ZrzJfc-dlUBMXYpZv-lnK2vOuidrc0hdxg&s",
+        },
+
+        {
+          id: 10,
+          name: "Nail Polish",
+          price: 199,
+          category: "cosmetics",
+          image:
+            "https://verymiss.in/cdn/shop/files/306_fcaf562b-2d97-4b6a-b884-fa2439657822.jpg?v=1723919143",
+        },
+      ];
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      document.getElementById("cartCount").innerText = cart.length;
+
+      let currentProducts = [...products];
+
+      function displayProducts(list) {
+        const productList = document.getElementById("productList");
+
+        productList.innerHTML = "";
+
+        if (list.length === 0) {
+          productList.innerHTML = `<h3 class="text-center text-danger mt-5">No Products Found</h3>`;
+
+          return;
+        }
+
+        list.forEach((p) => {
+          productList.innerHTML += `
+
+           <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+           <div class="card text-center">
+
+           <img src="${p.image}" class="card-img-top">
+
+           <div class="card-body">
+
+           <h5>${p.name}</h5>
+
+           <p class="price">₹${p.price}</p>
+
+           <button class="btn btn-primary w-100" onclick="addToCart(${p.id})">
+           Add To Cart
+        </button>
+
+    </div>
+
+   </div>
+
+</div>
+
+`;
+        });
+      }
+
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        document.getElementById("cartCount").innerText = cart.length;
+      }
+
+      document.getElementById("search").addEventListener("input", function () {
+        currentProducts = products.filter((p) =>
+          p.name.toLowerCase().includes(this.value.toLowerCase()),
+        );
+
+        displayProducts(currentProducts);
+      });
+
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", function () {
+          const category = this.value;
+
+          if (category === "all") {
+            currentProducts = [...products];
+          } else {
+            currentProducts = products.filter((p) => p.category === category);
+          }
+
+          displayProducts(currentProducts);
+        });
+
+      document.getElementById("sort").addEventListener("change", function () {
+        const type = this.value;
+
+        if (type === "low") {
+          currentProducts.sort((a, b) => a.price - b.price);
+        }
+
+        if (type === "high") {
+          currentProducts.sort((a, b) => b.price - a.price);
+        }
+
+        displayProducts(currentProducts);
+      });
+
+      displayProducts(products);
+    </script>
+  </body>
+</html>
