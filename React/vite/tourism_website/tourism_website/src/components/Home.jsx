@@ -1,4 +1,4 @@
-import "../styles/Home.css";
+// import "../styles/Home.css";
 import banner from "../assets/images/banner.jpg";
 
 function Home() {
