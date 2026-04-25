@@ -1,5 +1,5 @@
-// import "../styles/Home.css";
-import banner from "../assets/images/banner.jpg";
+import "../styles/Home.css";
+import banner from "../../public/assets/goa.jpg";
 
 function Home() {
   return (

@@ -1,26 +1,4 @@
-// import React from "react";
 
-// const Page1 = ({ name, price, category, img }) => {
-//   return (
-//     <>
-//       <div className="card m-3" style={{ width: "18rem" }}>
-//         <img src={img} className="card-img-top" alt={name} />
-
-//         <div className="card-body">
-//           <h5 className="card-title">{name}</h5>
-
-//           <p className="card-text">Price: ₹{price}</p>
-
-//           <p className="card-text">Category: {category}</p>
-
-//           <button className="btn btn-primary">Buy Now</button>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Page1;
 import React from "react";
 import "./Page1.css";
 
