@@ -1,28 +1,13 @@
 import React from "react";
 import Players from "./Components/Players";
 import players from "./array";
+import Tailwindpr from "./Components/Tailwindpr";
 
 function App() {
   return (
     <>
-      <h1>Trial Project</h1>
-
-      <div className="container">
-        <div className="row">
-          {players.map((val) => {
-            return (
-              <div className="col-3">
-                <Players
-                  name={val.name}
-                  age={val.age}
-                  team={val.team}
-                  img={val.img}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <h1>This is atilwind page</h1>
+      <Tailwindpr />
     </>
   );
 }

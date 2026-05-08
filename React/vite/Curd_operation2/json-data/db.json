@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Galaxy S24",
+      "category": "Mobile",
+      "price": 74999,
+      "brand": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air M3",
+      "category": "Laptop",
+      "price": 114999,
+      "brand": "Apple"
+    },
+    {
+      "id": 4,
+      "name": "HP Pavilion",
+      "category": "Laptop",
+      "price": 65999,
+      "brand": "HP"
+    },
+    {
+      "id": 5,
+      "name": "Boat Rockerz 450",
+      "category": "Headphones",
+      "price": 1499,
+      "brand": "Boat"
+    },
+    {
+      "name": "iphone",
+      "price": "8",
+      "category": "mobile",
+      "brand": "apple",
+      "id": 6
+    }
+  ]
+}

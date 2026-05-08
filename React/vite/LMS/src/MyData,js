@@ -1,0 +1,21 @@
+const courses = [
+  {
+    id: 1,
+    title: "React Basics",
+    instructor: "John Doe",
+    description: "Learn React fundamentals",
+    lessons: [
+      { id: 1, title: "Introduction", content: "Welcome to React!" },
+      { id: 2, title: "Components", content: "Components are reusable." },
+    ],
+  },
+  {
+    id: 2,
+    title: "JavaScript Advanced",
+    instructor: "Jane Smith",
+    description: "Deep dive into JavaScript",
+    lessons: [{ id: 1, title: "Closures", content: "Closures explained..." }],
+  },
+];
+
+export { courses };
