@@ -1,14 +1,6 @@
 {
   "jobs": [
     {
-      "id": 1,
-      "title": "React Developer",
-      "industry": "Information Technology",
-      "payscale": "      ",
-      "experience": "2",
-      "joiningDate": "2026-06-15"
-    },
-    {
       "title": "Java Fullstack Developer",
       "industry": "Healthcare",
       "payscale": "5",
@@ -33,27 +25,19 @@
       "id": 5
     },
     {
-      "title": "React Developer",
-      "industry": "Software Development",
-      "payscale": "rg",
-      "experience": "55",
-      "joiningDate": "2026-05-09",
-      "id": 6
-    },
-    {
       "title": "MERN Developer",
       "industry": "IT Services",
-      "payscale": "     ",
+      "payscale": "     12000",
       "experience": "5",
       "joiningDate": "2026-05-02",
       "id": 7
     },
     {
       "title": "MERN Developer",
-      "industry": "Software Development",
-      "payscale": "    5",
+      "industry": "IT Services",
+      "payscale": "45000",
       "experience": "4",
-      "joiningDate": "2026-05-15",
+      "joiningDate": "2026-05-31",
       "id": 8
     }
   ]
