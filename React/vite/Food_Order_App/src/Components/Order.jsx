@@ -112,7 +112,7 @@ function Order() {
               <p className="text-gray-600">
                 Qty: {item?.qty || order.qty} | Total:
                 <span className="text-green-600 font-bold ml-1">
-                  ₹{order.total}
+                  ₹{order.total + 50}
                 </span>
               </p>
 
