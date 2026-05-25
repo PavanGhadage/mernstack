@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+  </head>
+  <body style="margin: 0; font-family: Arial, sans-serif; background: #f4f4f4">
+    <div style="background: #222; padding: 15px; text-align: center">
+      <a href="/" style="color: white; margin: 15px; text-decoration: none"
+        >Home</a
+      >
+      <a href="/About" style="color: white; margin: 15px; text-decoration: none"
+        >About</a
+      >
+      <a href="/skill" style="color: white; margin: 15px; text-decoration: none"
+        >Skills</a
+      >
+      <a
+        href="/services"
+        style="color: white; margin: 15px; text-decoration: none"
+        >Services</a
+      >
+      <a
+        href="/contact"
+        style="color: white; margin: 15px; text-decoration: none"
+        >Contact</a
+      >
+    </div>
+
+    <section
+      style="
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        color: white;
+        text-align: center;
+      "
+    >
+      <h1 style="font-size: 50px">Welcome to My Portfolio</h1>
+      <p style="font-size: 22px; width: 70%">
+        I am a Web Developer passionate about creating websites.
+      </p>
+
+      <button
+        onclick="showMessage()"
+        style="
+          padding: 12px 25px;
+          border: none;
+          background: black;
+          color: white;
+          font-size: 18px;
+          border-radius: 5px;
+          cursor: pointer;
+        "
+      >
+        Click Me
+      </button>
+    </section>
+
+    <script>
+      function showMessage() {
+        alert("Welcome to My Portfolio Website!");
+      }
+    </script>
+  </body>
+</html>
