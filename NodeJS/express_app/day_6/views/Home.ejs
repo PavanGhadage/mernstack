@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Website</title>
+    <%- include("navbar.ejs") %>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body style="margin: 0; font-family: Arial, sans-serif; background: #f4f4f4">
-    <div style="background: #222; padding: 15px; text-align: center">
+    <!-- <div style="background: #222; padding: 15px; text-align: center">
       <a href="/" style="color: white; margin: 15px; text-decoration: none"
         >Home</a
       >
@@ -26,7 +28,7 @@
         style="color: white; margin: 15px; text-decoration: none"
         >Contact</a
       >
-    </div>
+    </div> -->
 
     <section
       style="
@@ -40,10 +42,8 @@
         text-align: center;
       "
     >
-      <h1 style="font-size: 50px">Welcome to My Portfolio</h1>
-      <p style="font-size: 22px; width: 70%">
-        I am a Web Developer passionate about creating websites.
-      </p>
+      <h1 style="font-size: 50px"><%= data.head %></h1>
+      <p><%= data.para %></p>
 
       <button
         onclick="showMessage()"

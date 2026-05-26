@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>About</title>
+    <%- include("navbar.ejs") %>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body style="margin: 0; font-family: Arial; background: #fff">
-    <div style="background: #222; padding: 15px; text-align: center">
+    <!-- <div style="background: #222; padding: 15px; text-align: center">
       <a href="/" style="color: white; margin: 15px; text-decoration: none"
         >Home</a
       >
@@ -24,10 +26,10 @@
         style="color: white; margin: 15px; text-decoration: none"
         >Contact</a
       >
-    </div>
+    </div> -->
 
     <section style="padding: 60px; text-align: center">
-      <h1 style="font-size: 45px">About Me</h1>
+      <h1 style="font-size: 45px"><%= data.head %></h1>
       <p
         style="
           font-size: 22px;
@@ -37,8 +39,7 @@
           margin: auto;
         "
       >
-        I am a Frontend Developer skilled in HTML, CSS, JavaScript, React, and
-        Node.js.
+        <%= data.para %>
       </p>
     </section>
   </body>
