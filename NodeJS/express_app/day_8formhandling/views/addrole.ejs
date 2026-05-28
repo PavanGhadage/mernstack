@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Portal Form</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div
+      class="w-full max-w-3xl bg-white shadow-2xl rounded-3xl overflow-hidden"
+    >
+      <!-- Header -->
+      <div class="bg-blue-600 text-white p-8 text-center">
+        <h1 class="text-4xl font-bold">Job Portal Application</h1>
+        <p class="mt-2 text-gray-200">Apply for your dream job</p>
+      </div>
+
+      <!-- Form -->
+      <form
+        class="p-8 grid grid-cols-1 md:grid-cols-2 gap-6"
+        action="/"
+        method="post"
+      >
+        <!-- Full Name -->
+        <div>
+          <label for="fullname" class="block text-gray-700 font-semibold mb-2">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your full name"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-gray-700 font-semibold mb-2">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-gray-700 font-semibold mb-2">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter phone number"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Job Role -->
+        <div>
+          <label for="jobrole" class="block text-gray-700 font-semibold mb-2">
+            Job Role
+          </label>
+          <select
+            id="jobrole"
+            name="jobrole"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Select Role</option>
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Full Stack Developer</option>
+            <option value="designer">UI/UX Designer</option>
+          </select>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <label
+            for="experience"
+            class="block text-gray-700 font-semibold mb-2"
+          >
+            Experience
+          </label>
+          <input
+            type="number"
+            id="experience"
+            name="experience"
+            placeholder="Years of experience"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Skills -->
+        <div>
+          <label for="skills" class="block text-gray-700 font-semibold mb-2">
+            Skills
+          </label>
+          <input
+            type="text"
+            id="skills"
+            name="skills"
+            placeholder="HTML, CSS, JavaScript"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <!-- Resume Upload -->
+
+        <!-- About -->
+        <div class="md:col-span-2">
+          <label for="about" class="block text-gray-700 font-semibold mb-2">
+            About Yourself
+          </label>
+          <textarea
+            id="about"
+            name="about"
+            rows="5"
+            placeholder="Tell us about yourself"
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="md:col-span-2 flex justify-center gap-4 mt-4">
+          <button
+            type="submit"
+            id="submitbtn"
+            name="submitbtn"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition duration-300"
+          >
+            Submit Application
+          </button>
+
+          <button
+            type="reset"
+            id="resetbtn"
+            name="resetbtn"
+            class="bg-gray-400 hover:bg-gray-500 text-white font-semibold px-8 py-3 rounded-xl transition duration-300"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+```

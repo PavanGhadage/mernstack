@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Student Data</title>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+  <div class="grid gap-6">
+
+    <% data.map((item) => { %>
+
+      <div class="bg-white shadow-lg rounded-xl p-6 w-80 border border-gray-200">
+
+        <h1 class="text-2xl font-bold text-blue-600 mb-4 text-center">
+          Student Details
+        </h1>
+
+        <div class="space-y-2 text-lg">
+
+          <p>
+            <span class="font-semibold text-gray-700">Name:</span>
+            <%= item.name %>
+          </p>
+
+          <p>
+            <span class="font-semibold text-gray-700">ID:</span>
+            <%= item.studentId %>
+          </p>
+
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </div>
+
+</body>
+</html>

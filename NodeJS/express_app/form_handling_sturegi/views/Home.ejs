@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registry</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-96">
+      <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">
+        Student Registry
+      </h1>
+
+      <form class="space-y-5" action="/form" method="post">
+        <!-- Student Name -->
+        <div>
+          <label for="name" class="block text-gray-700 font-medium mb-2">
+            Student Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter student name"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <!-- Student ID -->
+        <div>
+          <label for="studentId" class="block text-gray-700 font-medium mb-2">
+            Student ID
+          </label>
+
+          <input
+            type="number"
+            id="studentId"
+            name="studentId"
+            placeholder="Enter student ID"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <!-- Button -->
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg"
+        >
+          Register Student
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

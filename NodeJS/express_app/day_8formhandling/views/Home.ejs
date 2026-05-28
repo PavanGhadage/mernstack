@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Job Application Details</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-10">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <% if(data && data.length > 0){ %>
+
+      <% data.forEach((item)=> { %>
+
+        <div class="bg-white shadow-2xl rounded-3xl p-8 w-[350px] hover:scale-105 transition duration-300">
+
+          <!-- Profile Circle -->
+          <div class="flex justify-center mb-5">
+
+            <div class="bg-blue-600 text-white h-20 w-20 rounded-full flex items-center justify-center text-3xl font-bold">
+
+              <%= item.fullname? item.fullname.charAt(0).toUpperCase() : "U" %>
+
+            </div>
+
+          </div>
+
+          <!-- Name -->
+          <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+
+            <%= item.fullname %>
+
+          </h1>
+
+          <!-- Details -->
+          <div class="space-y-4">
+
+            <!-- Role -->
+            <div class="bg-gray-100 p-4 rounded-xl">
+
+              <p class="text-gray-500 text-sm">Job Role</p>
+
+              <h2 class="text-lg font-semibold text-gray-800">
+
+                <%= item.jobrole  %>
+
+              </h2>
+
+            </div>
+
+            
+            <div class="bg-gray-100 p-4 rounded-xl">
+
+              <p class="text-gray-500 text-sm">Email</p>
+
+              <h2 class="text-lg font-semibold text-gray-800">
+
+                <%= item.email || "Not Provided" %>
+
+              </h2>
+
+            </div>
+
+            
+            <div class="bg-gray-100 p-4 rounded-xl">
+
+              <p class="text-gray-500 text-sm">Phone</p>
+
+              <h2 class="text-lg font-semibold text-gray-800">
+
+                <%= item.phone || "Not Provided" %>
+
+              </h2>
+
+            </div>
+
+            
+            <div class="bg-gray-100 p-4 rounded-xl">
+
+              <p class="text-gray-500 text-sm">Skills</p>
+
+              <h2 class="text-lg font-semibold text-gray-800">
+
+                <%= item.skills || "Not Provided" %>
+
+              </h2>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      <% }) %>
+
+    <% } else { %>
+
+      <h1 class="text-3xl font-bold text-red-500">
+        No Data Found
+      </h1>
+
+    <% } %>
+
+  </div>
+
+</body>
+</html>
