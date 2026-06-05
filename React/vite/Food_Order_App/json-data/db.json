@@ -318,20 +318,6 @@
       "id": 1
     },
     {
-      "foodId": 1,
-      "name": "Pizza Hut",
-      "image": "https://t4.ftcdn.net/jpg/02/94/44/43/360_F_294444346_6Ug9QxlgFzalGMpEOeYEz1S61CZbFulC.jpg",
-      "symbol": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
-      "rating": "4.5",
-      "cuisine": "Pizza, Italian",
-      "category": "Pizza",
-      "deliveryTime": "30 mins",
-      "price": "₹399",
-      "qty": 1,
-      "userEmail": "pavanghadage510@gmail.com",
-      "id": 2
-    },
-    {
       "foodId": 2,
       "name": "Burger King",
       "image": "https://b.zmtcdn.com/data/pictures/chains/8/6506108/87dfce2afb78e9adc22411c5984a43e9.jpg",
@@ -411,29 +397,6 @@
     }
   ],
   "order": [
-    {
-      "name": "Pavan Ghadage",
-      "email": "pavanghadage510@gmail.com",
-      "mobile": "7773934201",
-      "city": "pune",
-      "address": "101,shlok avenue",
-      "payment": "UPI",
-      "item": {
-        "id": 1,
-        "name": "Pizza Hut",
-        "category": "Pizza",
-        "cuisine": "Pizza, Italian",
-        "rating": "4.5",
-        "price": "₹399",
-        "deliveryTime": "30 mins",
-        "image": "https://t4.ftcdn.net/jpg/02/94/44/43/360_F_294444346_6Ug9QxlgFzalGMpEOeYEz1S61CZbFulC.jpg",
-        "symbol": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s"
-      },
-      "qty": 1,
-      "total": 399,
-      "userEmail": "pavanghadage510@gmail.com",
-      "id": 1
-    },
     {
       "name": "Pavan Ghadage",
       "email": "pavanghadage510@gmail.com",
@@ -582,6 +545,27 @@
       "total": 209,
       "userEmail": "abc@gmail.com",
       "id": 8
+    },
+    {
+      "name": "Pavan Ghadage",
+      "email": "pavanghadage510@gmail.com",
+      "mobile": "7773934201",
+      "city": "pune",
+      "address": "101,shlok vnue",
+      "payment": "COD",
+      "cartItems": [
+        {
+          "id": 3,
+          "name": "Burger King",
+          "image": "https://b.zmtcdn.com/data/pictures/chains/8/6506108/87dfce2afb78e9adc22411c5984a43e9.jpg",
+          "price": "₹99",
+          "qty": 1
+        }
+      ],
+      "qty": 1,
+      "total": 99,
+      "userEmail": "pavanghadage510@gmail.com",
+      "id": 9
     }
   ]
 }

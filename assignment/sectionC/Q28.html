@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calculate() {
+        const arr = [1, 2, 3, 4];
+        const data = arr.map((num) => num * 10);
+        return data;
+      }
+
+      function execute(callback) {
+        return callback();
+      }
+
+      const result = execute(calculate);
+
+      console.log(result);
+    </script>
+  </body>
+</html>
