@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Records</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+
+<h1 class="text-4xl font-bold text-center text-blue-600 mb-10">
+  Student Records
+</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <% data.forEach((item)=>{ %>
+
+  <div class="bg-white p-6 rounded-xl shadow-lg">
+
+    <h2 class="text-xl font-bold mb-4 text-blue-500">
+      <%= item.name %>
+    </h2>
+
+    <p><strong>ID:</strong> <%= item.studentId %></p>
+
+    <p><strong>Email:</strong> <%= item.email %></p>
+
+    <p><strong>Phone:</strong> <%= item.phone %></p>
+
+    <p><strong>DOB:</strong> <%= item.dob %></p>
+
+    <p><strong>Gender:</strong> <%= item.gender %></p>
+
+    <p><strong>Course:</strong> <%= item.course %></p>
+
+    <p><strong>Department:</strong> <%= item.department %></p>
+
+    <p><strong>Semester:</strong> <%= item.semester %></p>
+
+    <p><strong>Address:</strong> <%= item.address %></p>
+
+    <p>
+      <strong>Skills:</strong>
+
+      <% if(Array.isArray(item.skills)){ %>
+        <%= item.skills.join(", ") %>
+      <% } else { %>
+        <%= item.skills %>
+      <% } %>
+    </p>
+    <div class="flex gap-3 mt-5">
+  <a href="/edit/<%= item._id %>">
+    <button
+    class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+  >
+    Edit
+  </button>
+  </a>
+
+  <a href="/delete/<%= item._id %>">
+    <button
+    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+    onclick=""
+  >
+    Delete
+  </button>
+  </a>
+</div>
+
+  </div>
+
+  <% }) %>
+
+</div>
+
+<div class="text-center mt-10">
+  <a
+    href="/"
+    class="bg-blue-600 text-white px-5 py-2 rounded"
+  >
+    Add New Student
+  </a>
+</div>
+
+</body>
+</html>

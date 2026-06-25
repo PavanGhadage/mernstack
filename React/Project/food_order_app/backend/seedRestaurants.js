@@ -1,0 +1,368 @@
+const mongoose = require("mongoose");
+const Restaurant = require("./models/Restaurant");
+
+mongoose.connect("mongodb://127.0.0.1:27017/foodieexpress");
+
+// const restaurants = [
+//   // PASTE ALL RESTAURANT OBJECTS HERE
+// ];
+const restaurants = [
+  {
+    id: "1",
+    name: "Pizza Hut",
+    category: "Pizza",
+    cuisine: "Pizza, Italian",
+    rating: "4.5",
+    price: "₹899",
+    deliveryTime: "30 mins",
+    image:
+      "https://t4.ftcdn.net/jpg/02/94/44/43/360_F_294444346_6Ug9QxlgFzalGMpEOeYEz1S61CZbFulC.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "2",
+    name: "Burger King",
+    category: "Burger",
+    cuisine: "Burgers, Fries",
+    rating: "4.2",
+    price: "₹99",
+    deliveryTime: "35 mins",
+    image:
+      "https://b.zmtcdn.com/data/pictures/chains/8/6506108/87dfce2afb78e9adc22411c5984a43e9.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "3",
+    name: "Domino's Pizza",
+    category: "Pizza",
+    cuisine: "Pizza, Snacks",
+    rating: "4.4",
+    deliveryTime: "28 mins",
+    price: "₹199",
+    image:
+      "https://media.dominos.com/content/images/five-cheese-mac-and-cheese_thumb.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "4",
+    name: "Subway",
+    category: "Healthy Food",
+    cuisine: "Sandwich, Salad",
+    rating: "4.1",
+    deliveryTime: "20 mins",
+    price: "₹129",
+    image:
+      "https://i.ytimg.com/vi/h9nt_oAHvus/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCE0Pfd59f0pDC-jtjDH_yO_eIUrA",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "5",
+    name: "McDonald's",
+    category: "Burger",
+    cuisine: "Burger, Fries",
+    rating: "4.3",
+    price: "₹399",
+    deliveryTime: "22 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ouNz4WbfV8CSPs509kUMcl3ZFtQBldocWw&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "6",
+    name: "KFC",
+    category: "Burger",
+    cuisine: "Chicken, Meals",
+    rating: "4.0",
+    price: "₹209",
+    deliveryTime: "27 mins",
+    image:
+      "https://images.ctfassets.net/wtodlh47qxpt/5iYMlSgO8gr09Rjbn185qs/8f330ee5eb94ba4eff4f4552e361218d/KFC-Variety-Bucket.jpg",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "7",
+    name: "Biryani House",
+    category: "Biryani",
+    cuisine: "Biryani, Curry",
+    rating: "4.6",
+    price: "₹499",
+    deliveryTime: "35 mins",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%22Hyderabadi_Dum_Biryani%22.jpg/1280px-%22Hyderabadi_Dum_Biryani%22.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "8",
+    name: "Cafe Coffee Day",
+    category: "Cafe",
+    cuisine: "Coffee, Snacks",
+    rating: "4.1",
+    price: "₹49",
+    deliveryTime: "18 mins",
+    image:
+      "https://www.shutterstock.com/image-photo/mumbai-india-feb-23-cafe-600nw-2605028205.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "9",
+    name: "Chinese Wok",
+    category: "Chinese",
+    cuisine: "Noodles, Rice",
+    rating: "4.3",
+    price: "₹301",
+    deliveryTime: "32 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrlWTet0g0zxuVcMI-Gy6qHYyPKgTfzMSRSA&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "10",
+    name: "Desserts",
+    category: "icecream",
+    cuisine: "Ice Cream, Cakes",
+    rating: "4.7",
+    price: "₹89",
+    deliveryTime: "15 mins",
+    image:
+      "https://www.midwestliving.com/thmb/lML3-aFbmWNHGXRqLMfnTUt7Pbg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KH_020624_MDWL0264FINAL-copy2_preview-48597259de2941d8bbef7abadb8ed041.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "11",
+    name: "Pizza Hut",
+    category: "Pizza",
+    price: "₹299",
+    cuisine: "Cheese Pizza, Italian",
+    rating: "4.5",
+    deliveryTime: "30 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFzNnPR9HUmF2YAZqAIVOmeN2cTlkPwyWVWQ&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "12",
+    name: "Domino's Pizza",
+    category: "Pizza",
+    price: "₹349",
+    cuisine: "Veg Pizza, Italian",
+    rating: "4.4",
+    deliveryTime: "28 mins",
+    image: "https://www.dominos.co.in/files/items/MoroccanSpicePPVG_N.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "13",
+    name: "Burger King",
+    category: "Burger",
+    price: "₹249",
+    cuisine: "Chicken Burger, Fries",
+    rating: "4.2",
+    deliveryTime: "25 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPI8lyBwHc0WjF_icL6ocKqb9yLBMBpFL8Mg&s",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "14",
+    name: "McDonald's",
+    category: "Burger",
+    price: "₹279",
+    cuisine: "Veg Burger Meals",
+    rating: "4.3",
+    deliveryTime: "22 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEPipE0KpEUNcW5mwlMXTCrmrq6QRGkRGp6w&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "15",
+    name: "KFC",
+    category: "Burger",
+    price: "₹399",
+    cuisine: "Chicken Burger",
+    rating: "4.0",
+    deliveryTime: "27 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU7hIZaqzYiL-h3gf73QuvggjV--cuqNXS7A&s",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "16",
+    name: "Biryani House",
+    category: "Biryani",
+    price: "₹349",
+    cuisine: "Chicken Biryani",
+    rating: "4.6",
+    deliveryTime: "35 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlPQXFO4B201Ry8o7_Soa7dwhJBrtcwJdE0w&s",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "17",
+    name: "Royal Biryani",
+    category: "Biryani",
+    price: "₹499",
+    cuisine: "Mutton Biryani",
+    rating: "4.9",
+    deliveryTime: "40 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsnOxYBAopwRpwqeoMyI_rUWWeL4KZ9EbQkA&s",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "18",
+    name: "Hyderabadi Spice",
+    category: "Biryani",
+    price: "₹399",
+    cuisine: "Hyderabadi Dum Biryani",
+    rating: "4.7",
+    deliveryTime: "38 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2MDlv0vlkNT319YNrlN4fTnQXF9HbCBR7IA&s",
+    symbol:
+      "https://e7.pngegg.com/pngimages/344/498/png-clipart-computer-icons-computer-software-light-non-veg-food-angle-rectangle-thumbnail.png",
+  },
+  {
+    id: "19",
+    name: "Sweet Desserts",
+    category: "icecream",
+    price: "₹249",
+    cuisine: "Ice Cream, Cakes",
+    rating: "4.7",
+    deliveryTime: "15 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSakAsL8q2H_IJA9uqh-kggmZ7kVQhzO1ALNQ&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "20",
+    name: "Cold Stone",
+    category: "icecream",
+    price: "₹299",
+    cuisine: "Strawberry Ice Cream",
+    rating: "4.6",
+    deliveryTime: "19 mins",
+    image:
+      "https://www.lanascooking.com/wp-content/uploads/2017/07/homemade-strawberry-ice-cream-1200-feature-2025.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "21",
+    name: "Frozen Scoop",
+    category: "icecream",
+    price: "₹179",
+    cuisine: "Vanilla Ice Cream",
+    rating: "4.4",
+    deliveryTime: "20 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfj3QrdNBPkehrqc0-XKhXzXnV4DMFNTkLXA&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "22",
+    name: "Choco Heaven",
+    category: "Desserts",
+    price: "₹329",
+    cuisine: "Chocolate Brownie",
+    rating: "4.8",
+    deliveryTime: "18 mins",
+    image:
+      "https://icecreambakery.in/wp-content/uploads/2024/12/Brownie-Recipe-with-Cocoa-Powder-1200x821.jpg",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "23",
+    name: "Italian Oven",
+    category: "Pizza",
+    price: "₹399",
+    cuisine: "Italian Pizza",
+    rating: "4.5",
+    deliveryTime: "31 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx99gel86JguakRyW8C-Z59ZhJJtX6NsCBCA&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "24",
+    name: "Burger Hub",
+    category: "Burger",
+    price: "₹229",
+    cuisine: "Double Cheese Burger",
+    rating: "4.1",
+    deliveryTime: "24 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPl9lncUDCC6xQ0BJoi7pJDa_tDZLtxivy4w&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    id: "25",
+    name: "Cake Factory",
+    category: "Desserts",
+    price: "₹459",
+    cuisine: "Black Forest Cake",
+    rating: "4.9",
+    deliveryTime: "21 mins",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZDa0-vBlr-z5L4IcO5vJP1TvqHYSYqV0Xag&s",
+    symbol:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vVZGZhGkqbspnxWK1ACaklfKECrbFxuA6Q&s",
+  },
+  {
+    name: "burger king",
+    category: "Burger",
+    cuisine: "fastfood",
+    rating: "5",
+    price: "₹99",
+    deliveryTime: "80min",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ouNz4WbfV8CSPs509kUMcl3ZFtQBldocWw&s",
+    symbol:
+      "https://media.dominos.com/content/images/five-cheese-mac-and-cheese_thumb.jpg",
+    id: "tZmtBT8",
+  },
+];
+
+async function seedData() {
+  try {
+    console.log("Connected...");
+    console.log("Restaurants:", restaurants.length);
+
+    await Restaurant.deleteMany();
+
+    const result = await Restaurant.insertMany(restaurants);
+
+    console.log("Inserted:", result.length);
+
+    console.log("✅ Restaurants Imported Successfully");
+
+    process.exit();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+seedData();

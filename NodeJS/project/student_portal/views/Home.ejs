@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Student Course Portal</title>
+  </head>
+  <body>
+    <%- include("navbar.ejs") %>
+
+    <section class="hero">
+      <h1>Student Course Portal</h1>
+
+      <p>
+        Welcome to the Student Course Portal. Explore a variety of professional
+        courses, learn from experienced trainers, and register for the course
+        that matches your career goals.
+      </p>
+
+      <div class="course-count">
+        <h2>Total Available Courses: <%= homedata.length %></h2>
+      </div>
+
+      <div class="categories">
+        <h3>Course Categories Available</h3>
+
+        <ul>
+          <li>Web Development</li>
+          <li>Programming</li>
+          <li>Data Science</li>
+          <li>Design</li>
+          <li>Marketing</li>
+        </ul>
+      </div>
+
+      <a href="/courses" class="btn"> Explore Courses </a>
+    </section>
+  </body>
+</html>

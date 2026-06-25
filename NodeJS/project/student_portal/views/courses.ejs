@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <%- include("navbar.ejs") %>
+
+    <div class="courses-container">
+        <h1>Available Courses</h1>
+
+        <div class="course-grid">
+
+            <% coursedata.forEach(course => { %>
+
+                <div class="course-card">
+
+                    <h2><%= course.name %></h2>
+
+                    <p><strong>ID:</strong> <%= course.id %></p>
+
+                    <p><strong>Trainer:</strong> <%= course.trainer %></p>
+
+                    <p><strong>Duration:</strong> <%= course.duration %></p>
+
+                    <p><strong>Category:</strong> <%= course.category %></p>
+
+                <a href="/viewcourse/<%= course.id %>" class="btn">
+  View Details
+</a>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+    </div>
+
+</body>
+</html>

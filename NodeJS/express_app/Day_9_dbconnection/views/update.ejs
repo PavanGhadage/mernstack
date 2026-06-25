@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+
+  <h1 class="text-4xl font-bold text-center text-blue-600 mb-10">
+    Update Student Record
+  </h1>
+
+  <div class="max-w-4xl mx-auto">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg">
+
+      <form action="/update/<%= data._id %>" method="POST">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <input
+            type="text"
+            name="studentId"
+            value="<%= data.studentId %>"
+            placeholder="Student ID"
+            class="border p-3 rounded-lg"
+          />
+
+          <input
+            type="text"
+            name="name"
+            value="<%= data.name %>"
+            placeholder="Student Name"
+            class="border p-3 rounded-lg"
+          />
+
+          <input
+            type="email"
+            name="email"
+            value="<%= data.email %>"
+            placeholder="Email"
+            class="border p-3 rounded-lg"
+          />
+
+          <input
+            type="text"
+            name="phone"
+            value="<%= data.phone %>"
+            placeholder="Phone"
+            class="border p-3 rounded-lg"
+          />
+
+          <input
+            type="date"
+            name="dob"
+            value="<%= data.dob %>"
+            class="border p-3 rounded-lg"
+          />
+
+          <input
+            type="text"
+            name="department"
+            value="<%= data.department %>"
+            placeholder="Department"
+            class="border p-3 rounded-lg"
+          />
+
+        </div>
+
+        <div class="mt-5">
+          <label class="font-semibold">Gender</label>
+
+          <div class="flex gap-5 mt-2">
+
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                <%= data.gender === 'Male' ? 'checked' : '' %>
+              >
+              Male
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                <%= data.gender === 'Female' ? 'checked' : '' %>
+              >
+              Female
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="Other"
+                <%= data.gender === 'Other' ? 'checked' : '' %>
+              >
+              Other
+            </label>
+
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+
+          <select
+            name="course"
+            class="border p-3 rounded-lg"
+          >
+            <option <%= data.course === 'BCA' ? 'selected' : '' %>>BCA</option>
+            <option <%= data.course === 'BSc' ? 'selected' : '' %>>BSc</option>
+            <option <%= data.course === 'BTech' ? 'selected' : '' %>>BTech</option>
+            <option <%= data.course === 'MCA' ? 'selected' : '' %>>MCA</option>
+            <option <%= data.course === 'MTech' ? 'selected' : '' %>>MTech</option>
+          </select>
+
+          <select
+            name="semester"
+            class="border p-3 rounded-lg"
+          >
+            <option <%= data.semester === '1' ? 'selected' : '' %>>1</option>
+            <option <%= data.semester === '2' ? 'selected' : '' %>>2</option>
+            <option <%= data.semester === '3' ? 'selected' : '' %>>3</option>
+            <option <%= data.semester === '4' ? 'selected' : '' %>>4</option>
+            <option <%= data.semester === '5' ? 'selected' : '' %>>5</option>
+            <option <%= data.semester === '6' ? 'selected' : '' %>>6</option>
+            <option <%= data.semester === '7' ? 'selected' : '' %>>7</option>
+            <option <%= data.semester === '8' ? 'selected' : '' %>>8</option>
+          </select>
+
+        </div>
+
+        <textarea
+          name="address"
+          rows="4"
+          class="w-full border p-3 rounded-lg mt-5"
+          placeholder="Address"
+        ><%= data.address %></textarea>
+
+        <div class="mt-5">
+          <label class="font-semibold">Skills</label>
+
+          <div class="flex flex-wrap gap-4 mt-2">
+
+            <label>
+              <input type="checkbox" name="skills" value="Java"
+              <%= data.skills.includes('Java') ? 'checked' : '' %>>
+              Java
+            </label>
+
+            <label>
+              <input type="checkbox" name="skills" value="JavaScript"
+              <%= data.skills.includes('JavaScript') ? 'checked' : '' %>>
+              JavaScript
+            </label>
+
+            <label>
+              <input type="checkbox" name="skills" value="React"
+              <%= data.skills.includes('React') ? 'checked' : '' %>>
+              React
+            </label>
+
+            <label>
+              <input type="checkbox" name="skills" value="NodeJS"
+              <%= data.skills.includes('NodeJS') ? 'checked' : '' %>>
+              NodeJS
+            </label>
+
+          </div>
+        </div>
+
+        <div class="flex gap-3 mt-8">
+
+          
+            <button
+            type="submit"
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+            
+          >
+            Update Student
+          </button>
+         
+
+          <a
+            href="/formdata"
+            class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700"
+          >
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

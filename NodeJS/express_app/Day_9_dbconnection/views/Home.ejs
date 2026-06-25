@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 py-10">
+    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8">
+      <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">
+        Student Registration Form
+      </h1>
+
+      <form action="/form" method="POST" class="space-y-5">
+        <input
+          type="text"
+          name="studentId"
+          placeholder="Student ID"
+          class="w-full border p-2 rounded"
+          required
+        />
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Student Name"
+          class="w-full border p-2 rounded"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          class="w-full border p-2 rounded"
+          required
+        />
+
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          class="w-full border p-2 rounded"
+          required
+        />
+
+        <input type="date" name="dob" class="w-full border p-2 rounded" />
+
+        <div>
+          <label class="font-semibold">Gender</label>
+          <br />
+
+          <input type="radio" name="gender" value="Male" /> Male
+
+          <input type="radio" name="gender" value="Female" class="ml-4" />
+          Female
+
+          <input type="radio" name="gender" value="Other" class="ml-4" />
+          Other
+        </div>
+
+        <select name="course" class="w-full border p-2 rounded">
+          <option>Select Course</option>
+          <option>BCA</option>
+          <option>BSc</option>
+          <option>BTech</option>
+          <option>MCA</option>
+          <option>MTech</option>
+        </select>
+
+        <input
+          type="text"
+          name="department"
+          placeholder="Department"
+          class="w-full border p-2 rounded"
+        />
+
+        <select name="semester" class="w-full border p-2 rounded">
+          <option>Select Semester</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+        </select>
+
+        <textarea
+          name="address"
+          placeholder="Address"
+          class="w-full border p-2 rounded"
+        ></textarea>
+
+        <div>
+          <label class="font-semibold">Skills</label>
+          <br />
+
+          <input type="checkbox" name="skills" value="Java" /> Java
+
+          <input
+            type="checkbox"
+            name="skills"
+            value="JavaScript"
+            class="ml-4"
+          />
+          JavaScript
+
+          <input type="checkbox" name="skills" value="React" class="ml-4" />
+          React
+
+          <input type="checkbox" name="skills" value="NodeJS" class="ml-4" />
+          NodeJS
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-3 rounded-lg"
+        >
+          Register Student
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

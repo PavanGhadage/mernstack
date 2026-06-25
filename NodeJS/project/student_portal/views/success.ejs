@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("navbar.ejs") %>
+
+    <div class="success-container">
+      <div class="success-card">
+        <h1>🎉 Registration Successful</h1>
+
+        <h2>Welcome <%= student.fullname %>!</h2>
+
+        <p>
+          You have successfully registered for
+          <strong><%= student.course %></strong>.
+        </p>
+
+        <hr />
+
+        <p><strong>Name:</strong> <%= student.fullname %></p>
+
+        <p><strong>Email:</strong> <%= student.email %></p>
+
+        <p><strong>Mobile:</strong> <%= student.mobile %></p>
+
+        <p><strong>Selected Course:</strong> <%= student.course %></p>
+
+        <a href="/courses" class="btn"> View Courses </a>
+      </div>
+    </div>
+  </body>
+</html>
