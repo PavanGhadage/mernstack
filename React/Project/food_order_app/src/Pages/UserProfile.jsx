@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 function UserProfile() {
   const [user, setUser] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -27,35 +28,80 @@ function UserProfile() {
 
     if (!file) return;
 
-    const reader = new FileReader();
+    setImageFile(file);
 
-    reader.onloadend = () => {
-      setUser({
-        ...user,
-        profileImage: reader.result,
-      });
-    };
-
-    reader.readAsDataURL(file);
-  };
-  const removePhoto = () => {
     setUser({
       ...user,
-      profileImage: "",
+      profileImage: URL.createObjectURL(file),
     });
+  };
+  const removePhoto = async () => {
+    try {
+      const formData = new FormData();
+
+      formData.append("profileImage", "");
+
+      const result = await axios.patch(
+        `http://localhost:5000/api/users/profile/${user._id}`,
+        formData,
+      );
+
+      const updatedUser = {
+        id: result.data._id,
+        name: result.data.name,
+        email: result.data.email,
+        mobile: result.data.mobile,
+        role: result.data.role,
+        profileImage: "",
+      };
+
+      localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+      setUser(result.data);
+      setImageFile(null);
+
+      alert("✅ Profile Photo Removed");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const saveProfile = async () => {
     try {
-      await axios.patch(`http://localhost:5000/api/users/${user._id}`, {
-        name: user.name,
-        mobile: user.mobile,
-        profileImage: user.profileImage || "",
-      });
+      const formData = new FormData();
 
-      localStorage.setItem("currentUser", JSON.stringify(user));
+      formData.append("name", user.name);
+      formData.append("mobile", user.mobile);
 
-      alert("Profile Updated Successfully");
+      if (imageFile) {
+        formData.append("profileImage", imageFile);
+      }
+
+      const result = await axios.patch(
+        `http://localhost:5000/api/users/profile/${user._id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
+      );
+
+      const updatedUser = {
+        id: result.data._id,
+        name: result.data.name,
+        email: result.data.email,
+        mobile: result.data.mobile,
+        role: result.data.role,
+        profileImage: result.data.profileImage,
+      };
+
+      localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+      setUser(result.data);
+      setImageFile(null);
+
+      alert("✅ Profile Updated Successfully");
     } catch (error) {
       console.log(error);
     }

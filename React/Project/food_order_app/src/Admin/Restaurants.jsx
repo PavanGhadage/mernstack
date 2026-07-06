@@ -6,6 +6,8 @@ function Restaurants() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [showModal, setShowModal] = useState(false);
+  const [imageFile, setImageFile] = useState(null);
+
   //add
   const [newRestaurant, setNewRestaurant] = useState({
     name: "",
@@ -15,7 +17,7 @@ function Restaurants() {
     price: "",
     deliveryTime: "",
     image: "",
-    symbol: "",
+    foodType: "veg",
   });
 
   //edit
@@ -35,6 +37,9 @@ function Restaurants() {
     } catch (error) {
       console.log(error);
     }
+  };
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
   };
 
   const deleteProduct = async (id) => {
@@ -67,22 +72,43 @@ function Restaurants() {
       price: restaurant.price || "",
       deliveryTime: restaurant.deliveryTime || "",
       image: restaurant.image || "",
-      symbol: restaurant.symbol || "",
+      foodType: restaurant.foodType || "veg",
     });
 
     setShowModal(true);
+    setImageFile(null);
   };
   const addRestaurant = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/restaurants", newRestaurant);
+      if (!imageFile) {
+        alert("Please select an image");
+        return;
+      }
+      const formData = new FormData();
+
+      formData.append("name", newRestaurant.name);
+      formData.append("category", newRestaurant.category);
+      formData.append("cuisine", newRestaurant.cuisine);
+      formData.append("rating", newRestaurant.rating);
+      formData.append("price", newRestaurant.price);
+      formData.append("deliveryTime", newRestaurant.deliveryTime);
+      formData.append("image", imageFile);
+      formData.append("foodType", newRestaurant.foodType);
+
+      await axios.post("http://localhost:5000/api/restaurants", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       alert("Restaurant Added Successfully ✅");
 
       fetchProducts();
 
       setShowModal(false);
+      setImageFile(null);
 
       setNewRestaurant({
         name: "",
@@ -92,7 +118,7 @@ function Restaurants() {
         price: "",
         deliveryTime: "",
         image: "",
-        symbol: "",
+        foodType: "veg",
       });
     } catch (error) {
       console.log(error);
@@ -102,9 +128,29 @@ function Restaurants() {
     e.preventDefault();
 
     try {
+      const formData = new FormData();
+
+      formData.append("name", newRestaurant.name);
+      formData.append("category", newRestaurant.category);
+      formData.append("cuisine", newRestaurant.cuisine);
+      formData.append("rating", newRestaurant.rating);
+      formData.append("price", newRestaurant.price);
+      formData.append("deliveryTime", newRestaurant.deliveryTime);
+      formData.append("foodType", newRestaurant.foodType);
+
+      // Upload new image only if selected
+      if (imageFile) {
+        formData.append("image", imageFile);
+      }
+
       await axios.patch(
         `http://localhost:5000/api/restaurants/${editId}`,
-        newRestaurant,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
       );
 
       alert("✅ Restaurant Updated Successfully");
@@ -115,6 +161,8 @@ function Restaurants() {
       setEditId(null);
       setShowModal(false);
 
+      setImageFile(null);
+
       setNewRestaurant({
         name: "",
         category: "",
@@ -123,7 +171,7 @@ function Restaurants() {
         price: "",
         deliveryTime: "",
         image: "",
-        symbol: "",
+        foodType: "veg",
       });
     } catch (error) {
       console.log(error);
@@ -356,35 +404,36 @@ function Restaurants() {
                       </div>
 
                       <div className="col-12 col-md-6">
+                        {imageFile && (
+                          <img
+                            src={URL.createObjectURL(imageFile)}
+                            alt="Preview"
+                            width="150"
+                            className="mb-3 rounded"
+                          />
+                        )}
                         <input
-                          type="text"
+                          type="file"
                           className="form-control"
-                          placeholder="Image URL"
-                          value={newRestaurant.image}
-                          onChange={(e) =>
-                            setNewRestaurant({
-                              ...newRestaurant,
-                              image: e.target.value,
-                            })
-                          }
-                          required
+                          accept="image/*"
+                          onChange={handleImageChange}
                         />
                       </div>
 
                       <div className="col-12 col-md-6">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Symbol URL"
-                          value={newRestaurant.symbol}
+                        <select
+                          className="form-select"
+                          value={newRestaurant.foodType}
                           onChange={(e) =>
                             setNewRestaurant({
                               ...newRestaurant,
-                              symbol: e.target.value,
+                              foodType: e.target.value,
                             })
                           }
-                          required
-                        />
+                        >
+                          <option value="veg">🟢 Veg</option>
+                          <option value="nonveg">🔴 Non Veg</option>
+                        </select>
                       </div>
 
                       <div className="col-12">

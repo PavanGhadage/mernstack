@@ -9,7 +9,11 @@ const RestaurantSchema = new mongoose.Schema(
     price: String,
     deliveryTime: String,
     image: String,
-    symbol: String,
+    foodType: {
+      type: String,
+      enum: ["veg", "nonveg"],
+      default: "veg",
+    },
   },
   {
     timestamps: true,

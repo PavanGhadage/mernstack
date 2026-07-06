@@ -2,6 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+const VEG =
+  "https://res.cloudinary.com/ys0alilz/image/upload/v1782530119/veg_e4jamu.jpg  ";
+
+const NONVEG =
+  "https://res.cloudinary.com/ys0alilz/image/upload/v1782530118/nonveg_f6rg3q.webp";
 
 function Cart() {
   const [data, setdata] = useState([]);
@@ -82,7 +87,7 @@ function Cart() {
     (sum, item) => sum + getPrice(item.price) * (qty[item._id] || 1),
     0,
   );
-
+  console.log(data);
   return (
     <>
       <div className="container-fluid container-lg py-4 py-md-5">
@@ -95,6 +100,7 @@ function Cart() {
 
         <div className="row g-4">
           {data.map((item) => {
+            console.log(item.foodType);
             const total = getPrice(item.price) * qty[item._id];
 
             return (
@@ -114,7 +120,7 @@ function Cart() {
                       />
 
                       <img
-                        src={item.symbol}
+                        src={item.foodType === "veg" ? VEG : NONVEG}
                         alt=""
                         className="position-absolute bg-white rounded-circle p-1 shadow"
                         style={{

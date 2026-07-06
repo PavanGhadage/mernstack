@@ -74,9 +74,11 @@ function LoginPage() {
       });
 
       const userData = result.data;
+      console.log("Before Login");
 
-      localStorage.setItem("isLogin", true);
+      localStorage.setItem("isLogin", "true");
 
+      console.log("After Set:", localStorage.getItem("isLogin"));
       localStorage.setItem(
         "currentUser",
         JSON.stringify({
@@ -85,6 +87,7 @@ function LoginPage() {
           email: userData.email,
           mobile: userData.mobile,
           role: userData.role || "user",
+          profileImage: userData.profileImage || "",
         }),
       );
 

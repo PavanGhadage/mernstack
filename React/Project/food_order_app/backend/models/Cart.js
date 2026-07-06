@@ -6,7 +6,12 @@ const CartSchema = new mongoose.Schema(
 
     name: String,
     image: String,
-    symbol: String,
+
+    foodType: {
+      type: String,
+      enum: ["veg", "nonveg"],
+      default: "veg",
+    },
 
     rating: String,
     cuisine: String,

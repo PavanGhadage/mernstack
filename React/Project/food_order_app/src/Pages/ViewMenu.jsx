@@ -2,6 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+const VEG =
+  "https://res.cloudinary.com/ys0alilz/image/upload/v1782530119/veg_e4jamu.jpg  ";
+
+const NONVEG =
+  "https://res.cloudinary.com/ys0alilz/image/upload/v1782530118/nonveg_f6rg3q.webp";
 
 function ViewMenu() {
   const { id } = useParams();
@@ -70,7 +75,7 @@ function ViewMenu() {
         foodId: data._id,
         name: data.name,
         image: data.image,
-        symbol: data.symbol,
+        foodType: data.foodType, // ✅ Correct
         rating: data.rating,
         cuisine: data.cuisine,
         category: data.category,
@@ -108,7 +113,7 @@ function ViewMenu() {
           />
 
           <img
-            src={data.symbol}
+            src={data.foodType === "veg" ? VEG : NONVEG}
             className="position-absolute bg-white rounded-circle p-1 shadow"
             style={{
               width: "45px",
