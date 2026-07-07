@@ -22,20 +22,14 @@ app.set("view engine", "ejs");
 
 app.get("/home", (req, res) => {
   if (req.session.token) {
-    res.render("Home");
+    return res.render("Home");
   } else {
-    app.get("/home", (req, res) => {
-      if (req.session.token) {
-        res.render("Home");
-      } else {
-        return res.send(`
+    return res.send(`
       <script>
         alert("Session expired");
         window.location.assign("/");
       </script>
     `);
-      }
-    });
   }
 });
 
