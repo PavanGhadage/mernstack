@@ -75,6 +75,7 @@ cd backend
 npm install
 
 ====================\*==============================
+
 ##Step 3: Install Frontend Dependencies
 
 cd ../frontend
@@ -93,6 +94,7 @@ sql
 CREATE DATABASE interview_crud;
 
 Import the `database.sql` file into MySQL Workbench.
+
 ====================\*==============================
 
 Step 5: Configure Environment Variables
@@ -110,6 +112,7 @@ DB_PASSWORD=Pavan@1234
 DB_NAME=interview_crud
 
 JWT_SECRET=InterviewSecret123
+
 ====================\*==============================
 
 Step 6: Start Backend Server
@@ -121,7 +124,9 @@ npm run dev
 Backend runs on:
 
 http://localhost:5000
+
 ====================\*==============================
+
 Step 7: Start Frontend
 
 cd frontend
