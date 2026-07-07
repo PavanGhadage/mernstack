@@ -1,0 +1,317 @@
+{
+  "info": {
+    "_postman_id": "041700cd-f0cf-4461-9722-3f8fd7be1b1b",
+    "name": "Task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44268010"
+  },
+  "item": [
+    {
+      "name": "registeruser",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Suraj Pawar\",\r\n  \"email\": \"suraj1@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "alredyexistuser",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Suraj Pawar\",\r\n  \"email\": \"suraj@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"suraj@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getallproducts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_04wq}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getproductbyid",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{json_web_token_04wq}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/products/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "addproduct",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{bearer_token_0u5t}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "type": "text",
+              "uuid": "4cc6acf6-0647-4e94-bc7d-3869b590dae9",
+              "value": "vivo"
+            },
+            {
+              "key": "description",
+              "type": "text",
+              "uuid": "8815d31a-8661-4b5d-ad05-d303e029ebf3",
+              "value": "this is vivo phone"
+            },
+            {
+              "key": "quantity",
+              "type": "text",
+              "uuid": "6605f86e-d596-4ba4-8a52-9934e35dd8b0",
+              "value": "4"
+            },
+            {
+              "key": "price",
+              "type": "text",
+              "uuid": "46899907-df61-47de-a1a5-8700b8e76ed9",
+              "value": "250000"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "d7dc4dfd-f5e6-4d78-bff1-e66578726013",
+              "src": "/C:/Users/hp/Downloads/chromedownload/vivo.webp"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{supabase_service_role_api_key_04wq}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "price",
+              "type": "text",
+              "uuid": "b789ffbe-dbcb-4496-b513-b3beacc0308e",
+              "value": "1200000"
+            },
+            {
+              "key": "description",
+              "type": "text",
+              "uuid": "84eb6f03-a588-4c04-aebb-434f5c446acc",
+              "value": "update product"
+            },
+            {
+              "key": "name",
+              "type": "text",
+              "uuid": "a9fbebbe-34bd-481f-bd5a-d4e4da711276",
+              "value": "i phone 16pro"
+            },
+            {
+              "key": "quantity",
+              "type": "text",
+              "uuid": "4e148578-e7dd-40ca-8ac0-c0ab66a4e4f7",
+              "value": "7"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "84ac1b4f-dadc-4d47-8386-b67e7daafbca",
+              "src": "/C:/Users/hp/Downloads/chromedownload/iphone.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/products/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{bearer_token_0u5t}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/products/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "products",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_04wq",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_0u5t",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_04wq",
+      "secret": true
+    }
+  ]
+}
