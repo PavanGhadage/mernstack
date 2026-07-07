@@ -66,8 +66,6 @@ Step 1: Clone Repository
 bash
 git clone https://github.com/PavanGhadage/mernstack/tree/main/React/Task
 
-Replace the above URL with your GitHub repository URL.
-
 ====================\*==============================
 
 ##Step 2: Install Backend Dependencies
