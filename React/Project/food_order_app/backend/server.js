@@ -20,14 +20,15 @@ const app = express();
 // CONNECT DATABASE
 connectDB();
 
-// MIDDLEWARE
+// CORS
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://mernstack-wheat.vercel.app"],
     credentials: true,
   }),
 );
 
+// MIDDLEWARE
 app.use(express.json());
 app.use(cookieParser());
 
