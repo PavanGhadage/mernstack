@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -14,14 +14,11 @@ function UserProfile() {
 
   const fetchUser = async () => {
     try {
-      const result = await axios.get(
-        `http://localhost:5000/api/users/${currentUser.id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const result = await API.get(`/api/users/${currentUser.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       setUser(result.data);
     } catch (error) {
@@ -47,8 +44,8 @@ function UserProfile() {
 
       formData.append("profileImage", "");
 
-      const result = await axios.patch(
-        `http://localhost:5000/api/users/profile/${user._id}`,
+      const result = await API.patch(
+        `/api/users/profile/${user._id}`,
         formData,
         {
           headers: {
@@ -88,8 +85,8 @@ function UserProfile() {
         formData.append("profileImage", imageFile);
       }
 
-      const result = await axios.patch(
-        `http://localhost:5000/api/users/profile/${user._id}`,
+      const result = await API.patch(
+        `/api/users/profile/${user._id}`,
         formData,
         {
           headers: {

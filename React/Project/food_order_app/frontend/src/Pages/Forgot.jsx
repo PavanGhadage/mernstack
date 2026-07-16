@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -56,7 +56,7 @@ function Forgot() {
 
     try {
       // GET users
-      const res = await axios.get("http://localhost:5000/api/users");
+      const res = await API.get("/api/users");
       const allUsers = res.data;
 
       const user = allUsers.find((u) => u.email === data.email);
@@ -67,7 +67,7 @@ function Forgot() {
       }
 
       // UPDATE pass
-      await axios.patch(`http://localhost:5000/api/users/${user._id}`, {
+      await API.patch(`/api/users/${user._id}`, {
         ...user,
         password: data.password,
       });

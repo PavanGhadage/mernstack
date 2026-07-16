@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ function Cart() {
       try {
         const token = localStorage.getItem("token");
 
-        const result = await axios.get("http://localhost:5000/api/cart", {
+        const result = await API.get("/api/cart", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ function Cart() {
   const remove = async (id) => {
     const token = localStorage.getItem("token");
 
-    await axios.delete(`http://localhost:5000/api/cart/${id}`, {
+    await API.delete(`/api/cart/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

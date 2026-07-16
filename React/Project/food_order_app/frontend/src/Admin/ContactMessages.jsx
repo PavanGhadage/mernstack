@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 
 function ContactMessages() {
@@ -13,7 +13,7 @@ function ContactMessages() {
 
   const fetchMessages = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/api/contact");
+      const result = await API.get("/api/contact");
 
       setMessages(result.data);
     } catch (error) {
@@ -31,7 +31,7 @@ function ContactMessages() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/contact/${id}`);
+      await API.delete(`/api/contact/${id}`);
 
       fetchMessages();
 

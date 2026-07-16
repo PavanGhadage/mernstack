@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -108,8 +108,8 @@ function Ordernow() {
       const currentUser = JSON.parse(localStorage.getItem("user"));
       const token = localStorage.getItem("token");
 
-      const result = await axios.post(
-        "http://localhost:5000/api/orders",
+      const result = await API.post(
+        "/api/orders",
         {
           ...form,
           userEmail: currentUser.email,

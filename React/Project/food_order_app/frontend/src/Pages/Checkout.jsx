@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -106,8 +106,8 @@ function Checkout() {
     const currentUser = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
 
-    await axios.post(
-      "http://localhost:5000/api/orders",
+    await API.post(
+      "/api/orders",
       {
         ...form,
 

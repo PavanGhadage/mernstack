@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -32,7 +32,7 @@ function Restaurants() {
 
   const fetchProducts = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/api/restaurants");
+      const result = await API.get("/api/restaurants");
 
       setProducts(result.data);
     } catch (error) {
@@ -53,7 +53,7 @@ function Restaurants() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/restaurants/${id}`);
+      await API.delete(`/api/restaurants/${id}`);
 
       setProducts(products.filter((product) => product._id !== id));
 
@@ -83,6 +83,7 @@ function Restaurants() {
     setShowModal(true);
     setImageFile(null);
   };
+
   const addRestaurant = async (e) => {
     e.preventDefault();
 
@@ -101,8 +102,13 @@ function Restaurants() {
       formData.append("deliveryTime", newRestaurant.deliveryTime);
       formData.append("image", imageFile);
       formData.append("foodType", newRestaurant.foodType);
+      console.log(newRestaurant);
+      console.log("Food Type:", JSON.stringify(newRestaurant.foodType));
 
-      await axios.post("http://localhost:5000/api/restaurants", formData, {
+      for (let pair of formData.entries()) {
+        console.log(pair[0], "=", pair[1]);
+      }
+      await API.post("/api/restaurants", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -150,15 +156,11 @@ function Restaurants() {
         formData.append("image", imageFile);
       }
 
-      await axios.patch(
-        `http://localhost:5000/api/restaurants/${editId}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      await API.patch(`/api/restaurants/${editId}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+      });
 
       toast.success("Restaurant Updated Successfully ✅");
 
@@ -219,6 +221,8 @@ function Restaurants() {
             onClick={() => {
               setEditMode(false);
 
+              setImageFile(null);
+
               setNewRestaurant({
                 name: "",
                 category: "",
@@ -227,7 +231,7 @@ function Restaurants() {
                 price: "",
                 deliveryTime: "",
                 image: "",
-                symbol: "",
+                foodType: "veg",
               });
 
               setShowModal(true);

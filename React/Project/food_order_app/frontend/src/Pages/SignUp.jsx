@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -31,7 +31,7 @@ function SignUp() {
     const fetchdata = async () => {
       try {
         // const result = await axios.get("http://localhost:3000/logincred");
-        const result = await axios.get("http://localhost:5000/api/users");
+        const result = await API.get("/api/users");
 
         setusers(result.data);
       } catch (error) {
@@ -129,7 +129,7 @@ function SignUp() {
     if (haserror) return;
 
     try {
-      await axios.post("http://localhost:5000/api/users/register", {
+      await API.post("/api/users/register", {
         name: data.name,
         email: data.email,
         mobile: data.mobile,

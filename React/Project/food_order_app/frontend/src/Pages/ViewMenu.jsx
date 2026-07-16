@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,9 +19,7 @@ function ViewMenu() {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const result = await axios.get(
-          `http://localhost:5000/api/restaurants/${id}`,
-        );
+        const result = await API.get(`/api/restaurants/${id}`);
 
         setdata(result.data);
       } catch (error) {
@@ -54,7 +52,7 @@ function ViewMenu() {
       }
 
       // GET CART DATA
-      const cartItems = await axios.get("http://localhost:5000/api/cart", {
+      const cartItems = await API.get("/api/cart", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +88,7 @@ function ViewMenu() {
       };
 
       // POST
-      await axios.post("http://localhost:5000/api/cart", cartData, {
+      await API.post("/api/cart", cartData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const result = await axios.get("http://localhost:5000/api/restaurants");
+        const result = await API.get("/api/restaurants");
         setdata(result.data);
       } catch (error) {
         console.log(error);

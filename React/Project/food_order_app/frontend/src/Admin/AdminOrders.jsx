@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -17,7 +17,7 @@ function Orders() {
     try {
       const token = localStorage.getItem("token");
 
-      const result = await axios.get("http://localhost:5000/api/orders", {
+      const result = await API.get("/api/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,8 +33,8 @@ function Orders() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.patch(
-        `http://localhost:5000/api/orders/${id}`,
+      await API.patch(
+        `/api/orders/${id}`,
         { status },
         {
           headers: {
@@ -57,7 +57,7 @@ function Orders() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/orders/${id}`, {
+      await API.delete(`/api/orders/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

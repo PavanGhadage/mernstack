@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import {
   BarChart,
@@ -33,9 +33,9 @@ function AdminDashboard() {
         };
 
         const [users, products, orders] = await Promise.all([
-          axios.get("http://localhost:5000/api/users", config),
-          axios.get("http://localhost:5000/api/restaurants", config),
-          axios.get("http://localhost:5000/api/orders", config),
+          API.get("/api/users", config),
+          API.get("/api/restaurants", config),
+          API.get("/api/orders", config),
         ]);
 
         setUsersCount(users.data.length);

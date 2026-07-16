@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -68,7 +68,7 @@ function LoginPage() {
     if (hasError) return;
 
     try {
-      const result = await axios.post("http://localhost:5000/api/users/login", {
+      const result = await API.post("/api/users/login", {
         email: logdata.email,
         password: logdata.password,
       });

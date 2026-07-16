@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api/axios";
 import { toast } from "react-toastify";
 
 function AdminProfile() {
@@ -21,7 +21,7 @@ function AdminProfile() {
       formData.append("profileImage", profileImage);
 
       const result = await axios.patch(
-        `http://localhost:5000/api/users/profile/${admin.id}`,
+        `/api/users/profile/${admin.id}`,
         formData,
         {
           headers: {
@@ -49,7 +49,7 @@ function AdminProfile() {
   const deleteProfile = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/users/profile/${admin.id}`,
+        `/api/users/profile/${admin.id}`,
         {
           profileImage: "",
         },

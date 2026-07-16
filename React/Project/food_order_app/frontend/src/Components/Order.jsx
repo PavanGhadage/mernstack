@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../api/axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 function Order() {
@@ -13,7 +13,7 @@ function Order() {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://localhost:5000/api/orders", {
+        const res = await API.get("/api/orders", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -32,7 +32,7 @@ function Order() {
   // DELETE ORDER
   const cancelOrder = async (id) => {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://localhost:5000/api/orders/${id}`, {
+    await API.delete(`/api/orders/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -84,15 +84,29 @@ function Order() {
   const saveAddress = async (id) => {
     if (!validate()) return;
 
-    await axios.patch(`http://localhost:5000/api/orders/${id}`, {
-      address,
-    });
+    try {
+      const token = localStorage.getItem("token");
 
-    setData((prev) =>
-      prev.map((item) => (item._id === id ? { ...item, address } : item)),
-    );
+      await API.patch(
+        `/api/orders/${id}`,
+        { address },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
-    setEditId(null);
+      setData((prev) =>
+        prev.map((item) => (item._id === id ? { ...item, address } : item)),
+      );
+
+      setEditId(null);
+      toast.success("Address Updated Successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to update address");
+    }
   };
   const getStatusColor = (status) => {
     switch (status) {
