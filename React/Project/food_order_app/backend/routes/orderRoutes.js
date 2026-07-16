@@ -2,11 +2,21 @@ const express = require("express");
 const Order = require("../models/Order");
 
 const router = express.Router();
+const verifyToken = require("../middleware/verifyToken");
 
 // GET ALL ORDERS
-router.get("/", async (req, res) => {
+
+router.get("/", verifyToken, async (req, res) => {
   try {
-    const orders = await Order.find();
+    let orders;
+
+    if (req.user.role === "admin") {
+      orders = await Order.find();
+    } else {
+      orders = await Order.find({
+        userId: req.user.userId,
+      });
+    }
 
     res.json(orders);
   } catch (error) {
@@ -17,32 +27,13 @@ router.get("/", async (req, res) => {
     });
   }
 });
-
-// GET SINGLE ORDER
-router.get("/:id", async (req, res) => {
-  try {
-    const order = await Order.findById(req.params.id);
-
-    if (!order) {
-      return res.status(404).json({
-        message: "Order Not Found",
-      });
-    }
-
-    res.json(order);
-  } catch (error) {
-    console.log(error);
-
-    res.status(500).json({
-      message: "Server Error",
-    });
-  }
-});
-
 // CREATE ORDER
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
-    const order = new Order(req.body);
+    const order = new Order({
+      ...req.body,
+      userId: req.user.userId,
+    });
 
     await order.save();
 
@@ -55,17 +46,25 @@ router.post("/", async (req, res) => {
     });
   }
 });
-
 // UPDATE ORDER
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", verifyToken, async (req, res) => {
   try {
-    const updatedOrder = await Order.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
+    let updatedOrder;
+
+    if (req.user.role === "admin") {
+      updatedOrder = await Order.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
-      },
-    );
+      });
+    } else {
+      updatedOrder = await Order.findOneAndUpdate(
+        {
+          _id: req.params.id,
+          userId: req.user.userId,
+        },
+        req.body,
+        { new: true },
+      );
+    }
 
     if (!updatedOrder) {
       return res.status(404).json({
@@ -82,11 +81,19 @@ router.patch("/:id", async (req, res) => {
     });
   }
 });
-
 // DELETE ORDER
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
-    const deletedOrder = await Order.findByIdAndDelete(req.params.id);
+    let deletedOrder;
+
+    if (req.user.role === "admin") {
+      deletedOrder = await Order.findByIdAndDelete(req.params.id);
+    } else {
+      deletedOrder = await Order.findOneAndDelete({
+        _id: req.params.id,
+        userId: req.user.userId,
+      });
+    }
 
     if (!deletedOrder) {
       return res.status(404).json({

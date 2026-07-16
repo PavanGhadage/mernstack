@@ -2,11 +2,14 @@ const express = require("express");
 const Cart = require("../models/Cart");
 
 const router = express.Router();
+const verifyToken = require("../middleware/verifyToken");
 
 // GET ALL CART ITEMS
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
-    const cartItems = await Cart.find();
+    const cartItems = await Cart.find({
+      userId: req.user.userId,
+    });
 
     res.json(cartItems);
   } catch (error) {
@@ -19,9 +22,12 @@ router.get("/", async (req, res) => {
 });
 
 // ADD TO CART
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
-    const cartItem = new Cart(req.body);
+    const cartItem = new Cart({
+      ...req.body,
+      userId: req.user.userId,
+    });
 
     await cartItem.save();
 
@@ -36,9 +42,12 @@ router.post("/", async (req, res) => {
 });
 
 // DELETE CART ITEM
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
-    await Cart.findByIdAndDelete(req.params.id);
+    await Cart.findOneAndDelete({
+      _id: req.params.id,
+      userId: req.user.userId,
+    });
 
     res.json({
       message: "Cart Item Deleted",
