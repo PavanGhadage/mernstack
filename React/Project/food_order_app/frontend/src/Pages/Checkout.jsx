@@ -2,6 +2,7 @@ import API from "../api/axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import loadRazorpay from "../utils/loadRazorpay";
 function Checkout() {
   const location = useLocation();
   const nav = useNavigate();
@@ -99,14 +100,11 @@ function Checkout() {
     setError(err);
     return !iserror;
   };
-
-  const handleSubmit = async () => {
-    if (!validate()) return;
-
-    const currentUser = JSON.parse(localStorage.getItem("user"));
+  const saveOrder = async (paymentType, paymentStatus, razorpayData = {}) => {
     const token = localStorage.getItem("token");
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
-    await API.post(
+    return await API.post(
       "/api/orders",
       {
         ...form,
@@ -119,8 +117,15 @@ function Checkout() {
           qty: item.qty,
         })),
 
-        total,
+        total: total + 50,
         userEmail: currentUser.email,
+
+        payment: paymentType,
+        paymentStatus,
+
+        razorpayOrderId: razorpayData.razorpay_order_id || "",
+        razorpayPaymentId: razorpayData.razorpay_payment_id || "",
+        razorpaySignature: razorpayData.razorpay_signature || "",
       },
       {
         headers: {
@@ -128,10 +133,121 @@ function Checkout() {
         },
       },
     );
+  };
+  const handleCOD = async () => {
+    try {
+      await saveOrder("COD", "Pending");
 
-    toast.success("Order Placed Successfully 🎉");
+      toast.success("Order Placed Successfully 🎉");
 
-    nav("/orders");
+      nav("/orders");
+    } catch (error) {
+      console.log(error);
+
+      toast.error("Failed to Place Order");
+    }
+  };
+  const handleRazorpay = async () => {
+    const loaded = await loadRazorpay();
+
+    if (!loaded) {
+      toast.error("Razorpay SDK failed to load");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
+
+    try {
+      const { data } = await API.post(
+        "/api/payment/create-order",
+        {
+          amount: total + 50,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+
+        amount: data.order.amount,
+
+        currency: data.order.currency,
+
+        name: "Food Ordering App",
+
+        description: "Order Payment",
+
+        order_id: data.order.id,
+
+        prefill: {
+          name: form.name,
+          email: form.email,
+          contact: form.mobile,
+        },
+
+        theme: {
+          color: "#16a34a",
+        },
+
+        handler: async function (response) {
+          try {
+            const verify = await API.post(
+              "/api/payment/verify",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              },
+            );
+
+            if (!verify.data.success) {
+              toast.error("Payment Verification Failed");
+              return;
+            }
+
+            await saveOrder("Razorpay", "Paid", response);
+
+            toast.success("Payment Successful 🎉");
+
+            nav("/orders");
+          } catch (err) {
+            console.log(err);
+
+            toast.error("Payment Verification Failed");
+          }
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.on("payment.failed", function () {
+        toast.error("Payment Failed");
+      });
+
+      razorpay.open();
+    } catch (error) {
+      console.log(error);
+
+      toast.error("Payment Failed");
+    }
+  };
+  const handleSubmit = async () => {
+    if (!validate()) return;
+
+    if (form.payment === "COD") {
+      return handleCOD();
+    }
+
+    return handleRazorpay();
   };
 
   return (
@@ -222,7 +338,7 @@ function Checkout() {
               UPI Payment
             </div>
 
-            <div className="border rounded-4 p-3 mt-2 d-flex align-items-center gap-2">
+            {/* <div className="border rounded-4 p-3 mt-2 d-flex align-items-center gap-2">
               <input
                 type="radio"
                 name="payment"
@@ -231,7 +347,7 @@ function Checkout() {
                 onChange={handleChange}
               />{" "}
               Debit / Credit Card
-            </div>
+            </div> */}
 
             <small className="text-danger">{error.payment}</small>
           </div>

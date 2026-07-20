@@ -14,6 +14,9 @@ const {
   getsingleuser,
   update,
   deletedata,
+  sendOTP,
+  verifyOTP,
+  resetPassword,
 } = require("../controllers/userController");
 const cloudinary = require("../config/cloudinary");
 // REGISTER USER
@@ -32,5 +35,8 @@ router.patch(
 );
 
 router.delete("/:id", verifyToken, authorize("admin"), deletedata);
+router.post("/send-otp", sendOTP);
+router.post("/verify-otp", verifyOTP);
+router.post("/reset-password", resetPassword);
 
 module.exports = router;

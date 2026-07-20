@@ -1,5 +1,6 @@
 import API from "../api/axios";
 import React, { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 import {
   BarChart,
   Bar,
@@ -20,9 +21,11 @@ function AdminDashboard() {
   const [revenue, setRevenue] = useState(0);
   const [recentOrders, setRecentOrders] = useState([]);
   const [orderChartData, setOrderChartData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const token = localStorage.getItem("token");
 
@@ -74,12 +77,16 @@ function AdminDashboard() {
       } catch (error) {
         console.log("Dashboard Error:", error.response?.status);
         console.log(error.response?.data);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
-
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="container-fluid">
       <h2 className="mb-4 text-center text-md-start">📊 Admin Dashboard</h2>

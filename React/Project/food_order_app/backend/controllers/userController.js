@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+
 const cloudinary = require("../config/cloudinary");
+const transporter = require("../mail");
 
 const jwt = require("jsonwebtoken");
 exports.register = async (req, res) => {
@@ -189,5 +191,154 @@ exports.deletedata = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+  }
+};
+
+exports.sendOTP = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Check user
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Generate 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    // Save OTP
+    user.otp = otp;
+    user.otpExpire = Date.now() + 5 * 60 * 1000; // 5 minutes
+
+    await user.save();
+
+    // Send Email
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "FoodieHub Password Reset OTP",
+      html: `
+        <h2>FoodieHub Password Reset</h2>
+
+        <p>Your OTP is:</p>
+
+        <h1 style="color:#ff4d4f;">${otp}</h1>
+
+        <p>This OTP will expire in <b>5 minutes</b>.</p>
+
+        <p>If you didn't request this, please ignore this email.</p>
+      `,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "OTP sent successfully",
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to send OTP",
+    });
+  }
+};
+
+exports.verifyOTP = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (user.otp !== otp) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid OTP",
+      });
+    }
+
+    if (user.otpExpire < Date.now()) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP Expired",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "OTP Verified Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
+exports.resetPassword = async (req, res) => {
+  try {
+    const { email, otp, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Check OTP
+    if (user.otp !== otp) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid OTP",
+      });
+    }
+
+    // Check OTP Expiry
+    if (user.otpExpire < Date.now()) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP Expired",
+      });
+    }
+
+    // Hash New Password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    user.password = hashedPassword;
+
+    // Clear OTP
+    user.otp = "";
+    user.otpExpire = null;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Password Reset Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
   }
 };

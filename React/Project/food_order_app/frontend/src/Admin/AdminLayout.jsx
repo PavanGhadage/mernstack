@@ -1,27 +1,3 @@
-// import React from "react";
-// import { Outlet } from "react-router-dom";
-// import AdminSidebar from "./AdminSidebar";
-
-// function AdminLayout() {
-//   return (
-//     <div className="d-flex">
-//       <AdminSidebar />
-
-//       <div
-//         style={{
-//           marginLeft: "260px",
-//           width: "100%",
-//           minHeight: "100vh",
-//           padding: "20px",
-//         }}
-//       >
-//         <Outlet />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AdminLayout;
 import React from "react";
 import { Outlet } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";

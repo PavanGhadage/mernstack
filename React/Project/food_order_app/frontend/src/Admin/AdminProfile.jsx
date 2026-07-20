@@ -20,7 +20,7 @@ function AdminProfile() {
 
       formData.append("profileImage", profileImage);
 
-      const result = await axios.patch(
+      const result = await API.patch(
         `/api/users/profile/${admin.id}`,
         formData,
         {
@@ -48,7 +48,7 @@ function AdminProfile() {
   // Delete Profile Image
   const deleteProfile = async () => {
     try {
-      await axios.patch(
+      await API.patch(
         `/api/users/profile/${admin.id}`,
         {
           profileImage: "",

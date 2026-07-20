@@ -5,7 +5,11 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Loader from "./components/Loader";
+import { setupInterceptors } from "./api/setupInterceptors";
+import API from "./api/axios";
+import { useLoader } from "./context/LoaderContext";
 
 // User Pages
 import LoginPage from "./Pages/LoginPage";
@@ -15,6 +19,8 @@ import Sidebar from "./Pages/Sidebar";
 import Footer from "./Pages/Footer";
 import ProtectedRoute from "./Pages/ProtectedRoute";
 import Header from "./Pages/Header";
+import VerifyOTP from "./Pages/VerifyOTP";
+import ResetPassword from "./Pages/ResetPassword";
 
 // User Components
 import Home from "./Components/Home";
@@ -51,10 +57,16 @@ function Layout() {
     location.pathname === "/signup" ||
     location.pathname === "/forgot" ||
     location.pathname.startsWith("/admin");
+  const { setLoading } = useLoader();
 
+  useEffect(() => {
+    setupInterceptors(API, setLoading);
+  }, []);
   return (
     <div className="d-flex">
-      {!hideSidebar && <Sidebar sidebarOpen={sidebarOpen} />}
+      {!hideSidebar && (
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      )}
 
       <div
         style={{
@@ -74,13 +86,15 @@ function Layout() {
         )}
 
         <div className="flex-grow-1">
+          <Loader />
           <Routes>
             {/* Auth Routes */}
             <Route path="/signup" element={<SignUp />} />
-
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/forgot" element={<Forgot />} />
+            <Route path="/verify-otp" element={<VerifyOTP />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
             {/* User Routes */}
             <Route path="/" element={<Home />} />

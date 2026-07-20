@@ -2,7 +2,7 @@ import API from "../api/axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import loadRazorpay from "../utils/loadRazorpay";
 function Ordernow() {
   const location = useLocation();
   const nav = useNavigate();
@@ -78,7 +78,7 @@ function Ordernow() {
       isError = true;
       err.city = "City is required";
     } else if (!cityRegex.test(form.city)) {
-      err.city = "Only letters allowed";
+      isError = true.err.city = "Only letters allowed";
     }
 
     if (!form.address) {
@@ -100,27 +100,73 @@ function Ordernow() {
     setError(err);
     return !isError;
   };
+  const saveOrder = async (paymentType, paymentStatus, razorpayData = {}) => {
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
 
-  const handleSubmit = async () => {
-    if (!validate()) return;
+    return await API.post(
+      "/api/orders",
+      {
+        ...form,
+
+        userEmail: currentUser.email,
+
+        cartItems: [
+          {
+            ...item,
+            qty,
+          },
+        ],
+
+        total,
+
+        payment: paymentType,
+
+        paymentStatus,
+
+        razorpayOrderId: razorpayData.razorpay_order_id || "",
+
+        razorpayPaymentId: razorpayData.razorpay_payment_id || "",
+
+        razorpaySignature: razorpayData.razorpay_signature || "",
+
+        status: "Placed",
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+  };
+  const handleCOD = async () => {
+    try {
+      await saveOrder("COD", "Pending");
+
+      toast.success("Order Placed Successfully 🎉");
+
+      nav("/");
+    } catch (error) {
+      console.log(error);
+
+      toast.error("Failed to place order");
+    }
+  };
+  const handleRazorpay = async () => {
+    const loaded = await loadRazorpay();
+
+    if (!loaded) {
+      toast.error("Razorpay SDK failed to load");
+      return;
+    }
+
+    const token = localStorage.getItem("token");
 
     try {
-      const currentUser = JSON.parse(localStorage.getItem("user"));
-      const token = localStorage.getItem("token");
-
-      const result = await API.post(
-        "/api/orders",
+      const { data } = await API.post(
+        "/api/payment/create-order",
         {
-          ...form,
-          userEmail: currentUser.email,
-          cartItems: [
-            {
-              ...item,
-              qty,
-            },
-          ],
-          total,
-          status: "Placed",
+          amount: total,
         },
         {
           headers: {
@@ -129,16 +175,86 @@ function Ordernow() {
         },
       );
 
-      console.log(result.data);
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
 
-      toast.success("Order Placed Successfully 🎉");
+        amount: data.order.amount,
 
-      nav("/");
+        currency: data.order.currency,
+
+        name: "Food Ordering App",
+
+        description: "Order Payment",
+
+        order_id: data.order.id,
+
+        prefill: {
+          name: form.name,
+          email: form.email,
+          contact: form.mobile,
+        },
+
+        theme: {
+          color: "#16a34a",
+        },
+
+        handler: async function (response) {
+          try {
+            const verify = await API.post(
+              "/api/payment/verify",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              },
+            );
+
+            if (!verify.data.success) {
+              toast.error("Payment Verification Failed");
+              return;
+            }
+
+            // ✅ Save Order
+            await saveOrder("Razorpay", "Paid", response);
+
+            // ✅ Success Message
+            toast.success("Payment Successful 🎉");
+
+            // ✅ Redirect
+            nav("/");
+          } catch (error) {
+            console.log(error);
+            toast.error("Payment Verification Failed");
+          }
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.on("payment.failed", function () {
+        toast.error("Payment Failed");
+      });
+
+      razorpay.open();
     } catch (error) {
       console.log(error);
 
-      toast.error(error.response?.data?.message || "Failed to place order");
+      toast.error("Payment Failed");
     }
+  };
+  const handleSubmit = async () => {
+    if (!validate()) return;
+
+    if (form.payment === "COD") {
+      return handleCOD();
+    }
+
+    return handleRazorpay();
   };
 
   if (!item) {

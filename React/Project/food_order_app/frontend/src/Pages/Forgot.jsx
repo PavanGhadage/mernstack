@@ -1,81 +1,44 @@
-import API from "../api/axios";
 import React, { useState } from "react";
+import API from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 function Forgot() {
-  const nav = useNavigate();
+  const navigate = useNavigate();
 
-  const [users, setUsers] = useState([]);
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-    confirmpassword: "",
-  });
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const [showPass, setShowPass] = useState(false);
-  const [showConPass, setShowConPass] = useState(false);
-
-  const [error, setError] = useState({
-    email: "",
-    password: "",
-    confirmpassword: "",
-  });
-
-  const validate = () => {
-    let isError = false;
-    let err = { email: "", password: "", confirmpassword: "" };
-
-    if (!data.email.trim()) {
-      err.email = "Email is required";
-      isError = true;
-    }
-
-    if (!data.password.trim()) {
-      err.password = "Password is required";
-      isError = true;
-    }
-
-    if (!data.confirmpassword.trim()) {
-      err.confirmpassword = "Confirm password is required";
-      isError = true;
-    } else if (data.password !== data.confirmpassword) {
-      err.confirmpassword = "Passwords do not match";
-      isError = true;
-    }
-
-    setError(err);
-    return isError;
-  };
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validate()) return;
+    setError("");
+
+    if (!email.trim()) {
+      setError("Email is required");
+      return;
+    }
 
     try {
-      // GET users
-      const res = await API.get("/api/users");
-      const allUsers = res.data;
+      setLoading(true);
 
-      const user = allUsers.find((u) => u.email === data.email);
-
-      if (!user) {
-        setError({ ...error, email: "User not found" });
-        return;
-      }
-
-      // UPDATE pass
-      await API.patch(`/api/users/${user._id}`, {
-        ...user,
-        password: data.password,
+      const res = await API.post("/api/users/send-otp", {
+        email,
       });
 
-      toast.success("Password Updated Successfully ✅");
-      nav("/login");
+      toast.success(res.data.message);
+
+      localStorage.setItem("resetEmail", email);
+
+      navigate("/verify-otp");
     } catch (err) {
       console.log(err);
+
+      toast.error(err.response?.data?.message || "Failed to send OTP");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -83,104 +46,45 @@ function Forgot() {
     <div
       className="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
       style={{
-        background: "linear-gradient(to right, #ff512f, #dd2476)",
+        background: "linear-gradient(to right,#ff512f,#dd2476)",
       }}
     >
       <div
-        className="bg-white p-5 rounded-4 shadow-lg w-100"
+        className="bg-white shadow-lg rounded-4 p-5 w-100"
         style={{ maxWidth: "450px" }}
       >
-        <h1 className="text-center fw-bold text-danger mb-2">Reset Password</h1>
+        <h2 className="text-center text-danger fw-bold">Forgot Password</h2>
 
         <p className="text-center text-muted mb-4">
-          Enter email and new password
+          Enter your registered email.
         </p>
 
         <form onSubmit={handleSubmit}>
-          {/* Email */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Email</label>
+
             <input
               type="email"
-              className="form-control form-control-lg rounded-3"
-              placeholder="Enter email"
-              value={data.email}
-              onChange={(e) => setData({ ...data, email: e.target.value })}
+              className="form-control form-control-lg"
+              placeholder="Enter Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            {error.email && (
-              <small className="text-danger">{error.email}</small>
-            )}
+
+            {error && <small className="text-danger">{error}</small>}
           </div>
 
-          {/* Password */}
-          <div className="mb-3">
-            <label className="form-label fw-semibold">New Password</label>
-            <div className="position-relative">
-              <input
-                type={showPass ? "text" : "password"}
-                className="form-control form-control-lg rounded-3 pe-5"
-                placeholder="Enter new password"
-                value={data.password}
-                onChange={(e) => setData({ ...data, password: e.target.value })}
-              />
-
-              <span
-                className="position-absolute top-50 end-0 translate-middle-y me-3"
-                style={{ cursor: "pointer" }}
-                onClick={() => setShowPass(!showPass)}
-              >
-                {showPass ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
-            {error.password && (
-              <small className="text-danger">{error.password}</small>
-            )}
-          </div>
-
-          {/* Confirm Password */}
-          <div className="mb-4">
-            <label className="form-label fw-semibold">Confirm Password</label>
-
-            <div className="position-relative">
-              <input
-                type={showConPass ? "text" : "password"}
-                className="form-control form-control-lg rounded-3 pe-5"
-                placeholder="Confirm password"
-                value={data.confirmpassword}
-                onChange={(e) =>
-                  setData({
-                    ...data,
-                    confirmpassword: e.target.value,
-                  })
-                }
-              />
-
-              <span
-                className="position-absolute top-50 end-0 translate-middle-y me-3"
-                style={{ cursor: "pointer" }}
-                onClick={() => setShowConPass(!showConPass)}
-              >
-                {showConPass ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
-
-            {error.confirmpassword && (
-              <small className="text-danger">{error.confirmpassword}</small>
-            )}
-          </div>
-
-          {/* Button */}
-          <button className="btn btn-danger w-100 btn-lg fw-semibold rounded-3">
-            Update Password
+          <button className="btn btn-danger w-100 btn-lg" disabled={loading}>
+            {loading ? "Sending OTP..." : "Send OTP"}
           </button>
 
-          {/* Back */}
           <p
-            className="text-center mt-3 text-muted"
+            className="text-center mt-3"
             style={{ cursor: "pointer" }}
-            onClick={() => nav("/login")}
+            onClick={() => navigate("/login")}
           >
-            Back to <span className="text-danger fw-bold">Login</span>
+            Back to
+            <span className="text-danger fw-bold"> Login</span>
           </p>
         </form>
       </div>

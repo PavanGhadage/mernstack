@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-
+import { NavLink } from "react-router-dom";
 function Footer() {
   return (
     <footer className="bg-dark text-light pt-5 mt-5">
@@ -21,38 +21,41 @@ function Footer() {
             <h5 className="fw-bold text-white">Quick Links</h5>
             <ul className="list-unstyled mt-3">
               <li>
-                <a href="/" className="text-secondary text-decoration-none">
+                <NavLink to="/" className="text-secondary text-decoration-none">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="/about"
+                <NavLink
+                  to="/about"
                   className="text-secondary text-decoration-none"
                 >
                   About
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="/cart" className="text-secondary text-decoration-none">
+                <NavLink
+                  to="/cart"
+                  className="text-secondary text-decoration-none"
+                >
                   Cart
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="/orders"
+                <NavLink
+                  to="/orders"
                   className="text-secondary text-decoration-none"
                 >
                   Orders
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="/contact"
+                <NavLink
+                  to="/contact"
                   className="text-secondary text-decoration-none"
                 >
                   Contact Us
-                </a>
+                </NavLink>
               </li>
               <li></li>
             </ul>

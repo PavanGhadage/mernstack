@@ -9,10 +9,13 @@ import { ToastContainer } from "react-toastify";
 
 import "./index.css";
 import App from "./App.jsx";
+import { LoaderProvider } from "./context/LoaderContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <LoaderProvider>
+      <App />
+    </LoaderProvider>
     <ToastContainer position="top-right" autoClose={3000} />
   </StrictMode>,
 );

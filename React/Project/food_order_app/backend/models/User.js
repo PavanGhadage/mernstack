@@ -33,6 +33,17 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+
+    // Forgot Password OTP
+    otp: {
+      type: String,
+      default: "",
+    },
+
+    otpExpire: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,

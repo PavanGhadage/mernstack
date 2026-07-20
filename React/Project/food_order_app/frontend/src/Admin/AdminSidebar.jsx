@@ -4,13 +4,15 @@ import { NavLink, useNavigate } from "react-router-dom";
 function AdminSidebar() {
   const navigate = useNavigate();
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 768);
   const [showSettings, setShowSettings] = useState(false);
 
   const token = localStorage.getItem("token");
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const logout = () => {
+    handleNavigation();
+
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
@@ -22,12 +24,17 @@ function AdminSidebar() {
     isActive
       ? "text-warning text-decoration-none fw-bold"
       : "text-white text-decoration-none";
+  const handleNavigation = () => {
+    if (window.innerWidth < 768) {
+      setSidebarOpen(false);
+    }
+  };
 
   return (
     <>
       {/* Mobile Menu Button */}
       <button
-        className="btn btn-dark d-md-none position-fixed"
+        className="btn btn-dark position-fixed"
         style={{
           top: "10px",
           left: "10px",
@@ -46,8 +53,8 @@ function AdminSidebar() {
           height: "100vh",
           position: "fixed",
           top: 0,
-          left: window.innerWidth <= 768 ? (sidebarOpen ? "0" : "-260px") : "0",
-          transition: "0.3s",
+          left: sidebarOpen ? "0" : "-260px",
+          transition: "0.3s ease",
           zIndex: 1500,
           overflowY: "auto",
         }}
@@ -59,7 +66,7 @@ function AdminSidebar() {
             <NavLink
               to="/admin"
               className={navStyle}
-              onClick={() => setSidebarOpen(false)}
+              onClick={handleNavigation}
             >
               📊 Dashboard
             </NavLink>
@@ -69,7 +76,7 @@ function AdminSidebar() {
             <NavLink
               to="/admin/users"
               className={navStyle}
-              onClick={() => setSidebarOpen(false)}
+              onClick={handleNavigation}
             >
               👥 Users
             </NavLink>
@@ -79,7 +86,7 @@ function AdminSidebar() {
             <NavLink
               to="/admin/restaurants"
               className={navStyle}
-              onClick={() => setSidebarOpen(false)}
+              onClick={handleNavigation}
             >
               🍔 Restaurants
             </NavLink>
@@ -89,7 +96,7 @@ function AdminSidebar() {
             <NavLink
               to="/admin/orders"
               className={navStyle}
-              onClick={() => setSidebarOpen(false)}
+              onClick={handleNavigation}
             >
               📦 Orders
             </NavLink>
@@ -99,7 +106,7 @@ function AdminSidebar() {
             <NavLink
               to="/admin/messages"
               className={navStyle}
-              onClick={() => setSidebarOpen(false)}
+              onClick={handleNavigation}
             >
               📩 Messages
             </NavLink>
@@ -125,7 +132,7 @@ function AdminSidebar() {
                     <NavLink
                       to="/admin/profile"
                       className={navStyle}
-                      onClick={() => setSidebarOpen(false)}
+                      onClick={handleNavigation}
                     >
                       👤 Profile
                     </NavLink>
@@ -146,7 +153,11 @@ function AdminSidebar() {
 
         {!token && (
           <div className="mt-auto">
-            <NavLink to="/login" className="btn btn-warning w-100 rounded-pill">
+            <NavLink
+              to="/login"
+              className="btn btn-warning w-100 rounded-pill"
+              onClick={handleNavigation}
+            >
               Login
             </NavLink>
           </div>
