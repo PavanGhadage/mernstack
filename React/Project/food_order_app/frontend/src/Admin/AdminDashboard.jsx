@@ -1,6 +1,6 @@
 import API from "../api/axios";
 import React, { useEffect, useState } from "react";
-import Loader from "../components/Loader";
+import Loader from "../Components/Loader";
 import {
   BarChart,
   Bar,
