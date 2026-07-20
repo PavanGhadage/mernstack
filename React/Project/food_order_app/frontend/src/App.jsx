@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import React, { useState, useEffect } from "react";
-import Loader from "./components/Loader";
+import Loader from "./Components/Loader";
 import { setupInterceptors } from "./api/setupInterceptors";
 import API from "./api/axios";
 import { useLoader } from "./context/LoaderContext";
